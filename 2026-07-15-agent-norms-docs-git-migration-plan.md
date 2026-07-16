@@ -111,7 +111,7 @@ Confirm the 4 files land at `agent/rules/git/` with names intact and are read at
 
 1. **~~ISO-prefix exception for `package.md` and `README.md`~~ — RESOLVED (2026-07-16): exempt.** Both structural package files are exempt from the `agent-file-names-iso8601` convention. The `foundation` package's copy of that rule gets an explicit exemption note when foundation is migrated. The filename `package.md` is settled for now (a better term may surface later).
 2. **~~Does the authoring monorepo keep its own `agent/log/`~~ — RESOLVED (2026-07-16): yes.** The monorepo dogfoods the `foundation` `log/` convention. `agent/log/` created and backfilled with the first two migration decisions (the `subject-first` re-home and the `include:`/`package.md` adoption); M1–M4 merge decisions get one entry each as the consolidation increments run.
-3. **Phase B timing** — run A now and hold B until the org repos exist, or do both together?
+3. **~~Phase B timing~~ — RESOLVED (2026-07-16): done.** Org is `eventide-project`. Both repos created **public** (`agent-norms-docs`, `agent-norms-git`), split + pushed to `main`, and the pull proven into a throwaway project. Phase B complete.
 
 ## Not done without explicit go-ahead
 
