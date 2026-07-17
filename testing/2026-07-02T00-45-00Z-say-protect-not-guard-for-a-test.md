@@ -15,4 +15,4 @@ for the code pattern; this rule is only about not reusing "guard" for a test.)
 **How to apply:** in prose, comments, logs, and loop records, write that a test
 **protects** (e.g. "a test that protects the delegation seam"), never that it
 "guards." Keep "guard clause" for the early-return construct. Related: the
-name-literally-not-by-analogy rule and the other de-slang / lexicon rules.
+name-literally-not-by-analogy rule and the other de-slang rules in `vocabulary`.
