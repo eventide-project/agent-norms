@@ -4,7 +4,7 @@ The loop advances **one outcome at a time** and **stops at every gate** for the 
 
 **Finishing the work means naming the test.** A test left with an empty (unnamed) outcome context is unfinished; the closing step ascribes its name. Do this one test at a time.
 
-**The naming gate offers options plus the origination escape** — the same handoff as the actuation gate (see the actuation-gate-options rule). Present a list of candidate outcome-context names; the escape lets the human input a name directly or discuss it. The rationale carries over from the actuation gate: present alternatives, not a single pick (Law 1 — provoke origination, not mean-bias); and the escape is mandatory because the best name may be one only the human can produce (limit A).
+**The naming gate offers options plus the origination escape** — the same handoff as the actuation gate (see the actuation-gate-options rule). Present a list of candidate outcome-context names; the escape lets the human input a name directly or discuss it. The rationale carries over from the actuation gate: present alternatives, not a single pick — provoke origination, not mean-bias; and the escape is mandatory because the best name may be one only the human can produce.
 
 **Why:** Batch generation moves fast but bypasses the gates that are the whole point of the loop — each skipped gate is a place the human's judgment didn't get to act, and mistakes hide in the pile. Naming is a hinge like the actuation (the outcome-context name is a small contract on what the test establishes), so it gets the same options-plus-escape handoff rather than an AI fait accompli.
 

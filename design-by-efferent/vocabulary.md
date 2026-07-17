@@ -23,6 +23,8 @@ The lexicon of **Design By Efferent** (DBE) — use this vocabulary, with these 
 | **observation** | the act of reading the outcome | What the test observes about the outcome of the actuation. An **assertion** is the mechanism by which an observation is implemented, not the thing itself. |
 | **load-bearing** | second mark of a hinge | Other work rests on the choice, so a wrong one spreads and sticks: cheap to fix now, costly later. |
 | **solubility** | the quality | The general design-quality term (see the `vocabulary` package's solubility rule): how readily a unit dissolves into use. In DBE it is the target of generation and a known hinge — what the efferent view discovers. |
+| **mean-bias** | the AI's failure mode | The AI's pull toward the average of the code it has seen — most of which is poorly designed. It acts on the human too: a single AI proposal put up for approval drags the human's judgment down toward that average. |
+| **origination** | the human's contribution | The human producing a choice rather than ratifying one. The above-the-average answer is originated, not selected — which is what the gates exist to provoke. |
 
 ## "Efferent", not "caller"
 
@@ -43,6 +45,16 @@ Use **Design By Efferent** in full, or **DBE** as shorthand, wherever you name t
 The name states the essence: it is a **design** discipline (tests drive design — see the "TDD designs, coverage protects" rule), which is why the name says *Design*, not "Development"; and the design is driven **by the efferent** — the use-site view. The **actuation**, the first efferent reference to the unit, is written before any implementation, forcing the interface outside-in.
 
 Do not name the methodology "efferent-oriented design" (retired), and do not name it "test-driven development" or "development" — **TDD is the genus DBE belongs to; DBE is its name.** The lexicon term **efferent** (the use-site perspective) is unaffected by the retirement; only the *name of the methodology* changed.
+
+## The two results the gates rest on
+
+Every gate's form — options plus a mandatory escape — follows from two results, and the rules refer to them by these names:
+
+**Provoke origination, not mean-bias.** A single proposal put up for approval ("here's my actuation — approve?") puts the human in judge mode, downstream of the AI's mean-drawn answer. Judging is not originating: the human ratifies, and their judgment is pulled toward the average rather than exercised above it. Offering several genuine alternatives keeps the human comparing real candidates — originating — instead of ratifying. So a gate presents alternatives, never a fait accompli.
+
+**The best options are ones the AI can't produce.** The option set is the AI's own, drawn from the average. The best answer is often one only the human can produce, and a closed list tempts the human to pick from it instead of producing their own. So every gate keeps an escape open — the human dictating outright, or a chat to work the answer out. The escape is mandatory, at every gate, without exception: it is what keeps the human above the AI's mean when the right answer isn't on the list.
+
+The first result says *why there are options*. The second says *why the options are never enough*.
 
 ## "Load-bearing", explained
 
