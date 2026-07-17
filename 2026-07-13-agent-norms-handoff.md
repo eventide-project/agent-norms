@@ -20,9 +20,9 @@ Turn `constant`'s `agent/rules/` directives into reusable, general-purpose packa
 - **Package = unit of reuse.** Projects depend on whole packages; consolidate *within* a package.
 - **Composite repo authoring + split distribution.** This "Agent Norms" folder is the canonical composite repo (packages as root-level dirs, own full history). Each `agent-norms-<package>` component repo is a regenerated one-package view via `git subtree split --prefix=<package>`, pushed to its own repo in Scott's org. Sync is one-directional (composite repo → component repo).
 - **Repo prefix:** `agent-norms-` on a shared account (e.g. `agent-norms-testing`). `code/` flattens to `code-` in repo names; subtree prefix keeps the real path `agent/rules/code/ruby`.
-- **Package types:** `foundation`, `vocabulary`, `design-by-efferent` (DBE), `testing`, `code/ruby`, `git`, `docs` (plus `eventide`, reserved). `code/` and `local/` are grouping namespaces, not packages.
-- **Dependencies:** everything → `foundation`; `testing` & `code/ruby` → `vocabulary`; `design-by-efferent` → `foundation`, `vocabulary`, `testing`. `git`, `docs` standalone.
-- **`local/` mirror** holds `constant`-specific rules, never subtree'd, mirrors package categories (`local/code/ruby`, `local/vocabulary`, `local/testing`). Stays in `constant` only.
+- **Package types:** `foundation`, `language`, `design-by-efferent` (DBE), `testing`, `code/ruby`, `git`, `docs` (plus `eventide`, reserved). `code/` and `local/` are grouping namespaces, not packages.
+- **Dependencies:** everything → `foundation`; `testing` & `code/ruby` → `language`; `design-by-efferent` → `foundation`, `language`, `testing`. `git`, `docs` standalone.
+- **`local/` mirror** holds `constant`-specific rules, never subtree'd, mirrors package categories (`local/code/ruby`, `local/language`, `local/testing`). Stays in `constant` only.
 - **Term artifacts per package:** one rule per substitute (no `substitutes.md` table; revised 2026-07-16). A cohesive glossary of terms-with-meanings (the DBE lexicon) may be a `vocabulary.md`. Terms placed by the domain they serve.
 - **No manifest format;** each package dir carries an `include: …` line in a `package.md` file (separate from the informative `README.md`).
 - **DBE contributes the `loops/` artifact dir;** foundation keeps `rules/observations/deferred/log`.
@@ -32,7 +32,7 @@ Turn `constant`'s `agent/rules/` directives into reusable, general-purpose packa
 
 - **M1** controls trio → one rule (`testing`).
 - **M2** hinge-presentation trio → one rule (DBE).
-- **M3** ~~substitutes tables~~ → one rule per substitute (no table; revised 2026-07-16); DBE keeps its `vocabulary` glossary.
+- **M3** ~~substitutes tables~~ → one rule per substitute (no table; revised 2026-07-16); DBE keeps its `vocabulary.md` glossary.
 - **M4** stale supersessions closed out (mediates-for → mediates; hinge-choices → present-every-prompt; actuation/efferent-not-caller → DBE vocabulary; assert_raises naming stays its own rule — error tests named "Fails"/"Doesn't fail" as of 2026-07-17, fold reversed).
 
 Most of the ~67 rules relocate unchanged; only these clusters merge. See the classification table for the row-by-row detail.

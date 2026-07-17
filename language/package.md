@@ -1,3 +1,3 @@
-# vocabulary
+# language
 
 include: foundation

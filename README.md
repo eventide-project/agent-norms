@@ -10,11 +10,12 @@ reuse: a project adopts whole packages, never individual rules.
   `rules`/`observations`/`deferred`/`log` directories and how to work with them,
   the one-line decision-log format, and the ISO-8601-UTC filename convention.
   Everything includes it.
-- **vocabulary** — cross-cutting phrasing discipline: name concepts literally,
-  no slang, and the shared substitutes table.
+- **language** — how language is used: precisely. Words are load-bearing, so a
+  word choice is a design decision. Name concepts literally, drop slang, and one
+  rule per substitution.
 - **design-by-efferent** — the human-in-the-loop, efferent-first design method
   (DBE): hinges and gates, the actuation-first cycle, and the method's own
-  vocabulary. Contributes the `loops/` artifact directory.
+  `vocabulary.md` lexicon. Contributes the `loops/` artifact directory.
 - **testing** — controls-based test-writing conventions: variable prefixes, test
   structure and naming, assertion form.
 - **code/ruby** — prescriptive Ruby style.
@@ -27,9 +28,9 @@ line. Including a package pulls in the packages it includes.
 ```
 foundation ──► (everything)
 
-vocabulary ──► testing
-vocabulary ──► code/ruby
-vocabulary, testing ──► design-by-efferent
+language ──► testing
+language ──► code/ruby
+language, testing ──► design-by-efferent
 
 git   (standalone)
 docs  (standalone)
@@ -88,5 +89,5 @@ Consult a package's `package.md` for the packages it includes, and add those too
 ## Project-local rules
 
 Rules specific to a single project live under a `local/` directory that mirrors
-the package categories (`local/vocabulary`, `local/testing`, `local/code/ruby`)
+the package categories (`local/language`, `local/testing`, `local/code/ruby`)
 and is never split or pushed, so a project-specific rule cannot leak upstream.

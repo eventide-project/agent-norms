@@ -1,3 +1,3 @@
 # code/ruby
 
-include: foundation, vocabulary
+include: foundation, language

@@ -1,3 +1,3 @@
 # testing
 
-include: foundation, vocabulary
+include: foundation, language

@@ -34,4 +34,4 @@ The one-liner:
 - Loop records — one file per feature recording each pass's hinge → options → decision/chat.
 - Record substantive design dialogue automatically, as the session proceeds.
 
-Includes `foundation`, `vocabulary`, `testing`.
+Includes `foundation`, `language`, `testing`.

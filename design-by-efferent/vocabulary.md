@@ -22,7 +22,7 @@ The lexicon of **Design By Efferent** (DBE) — use this vocabulary, with these 
 | **actuation** | the act | The invocation of the unit under test — the first efferent reference, written before the implementation. Never "the call". |
 | **observation** | the act of reading the outcome | What the test observes about the outcome of the actuation. An **assertion** is the mechanism by which an observation is implemented, not the thing itself. |
 | **load-bearing** | second mark of a hinge | Other work rests on the choice, so a wrong one spreads and sticks: cheap to fix now, costly later. |
-| **solubility** | the quality | The general design-quality term (see the `vocabulary` package's solubility rule): how readily a unit dissolves into use. In DBE it is the target of generation and a known hinge — what the efferent view discovers. |
+| **solubility** | the quality | The general design-quality term (see the `language` package's solubility rule): how readily a unit dissolves into use. In DBE it is the target of generation and a known hinge — what the efferent view discovers. |
 | **mean-bias** | the AI's failure mode | The AI's pull toward the average of the code it has seen — most of which is poorly designed. It acts on the human too: a single AI proposal put up for approval drags the human's judgment down toward that average. |
 | **origination** | the human's contribution | The human producing a choice rather than ratifying one. The above-the-average answer is originated, not selected — which is what the gates exist to provoke. |
 
@@ -109,4 +109,4 @@ Together these give the **asymmetry that justifies the gate**: a load-bearing ch
 
 **Why:** The terminology is the conveyable output of this work — it is how the approach is taught to other engineers. Scattering it across observations and a digest left no authoritative source and risked drift; one binding glossary keeps usage consistent and avoids the overloaded or academic words this method rejects (e.g. discriminator, intrinsic, "given", "non-hinge"). Each term was chosen for solubility: plain, positive where possible, and free of programming collisions. Two competing "the name" declarations would drift, so DBE is the single canonical name.
 
-**How to apply:** Use these words, with these meanings, wherever you write about DBE. Prefer them over synonyms; do not reintroduce a retired term. Related: the DBE-as-design-tool, first-turn, human-in-the-loop, hinge-cycle, and "TDD designs, coverage protects" rules; the `vocabulary` package's solubility rule and its name-literally standard.
+**How to apply:** Use these words, with these meanings, wherever you write about DBE. Prefer them over synonyms; do not reintroduce a retired term. Related: the DBE-as-design-tool, first-turn, human-in-the-loop, hinge-cycle, and "TDD designs, coverage protects" rules; the `language` package's solubility rule and its name-literally standard.

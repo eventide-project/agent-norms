@@ -1,3 +1,3 @@
 # design-by-efferent
 
-include: foundation, vocabulary, testing
+include: foundation, language, testing

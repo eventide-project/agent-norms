@@ -21,4 +21,4 @@ Controls-based test-writing conventions — not tied to a specific test-framewor
 
 **Commands**: `test-report` (classify the suite) and `test-tree` (print a normalized de-duped context tree).
 
-Includes `foundation`, `vocabulary`.
+Includes `foundation`, `language`.

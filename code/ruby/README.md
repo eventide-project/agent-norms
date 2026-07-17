@@ -17,4 +17,4 @@ Prescriptive Ruby style.
 
 **Command**: `lib-report` (classify `lib/` by role, construct, method style, API currency, error taxonomy, idioms).
 
-`code/` is a language grouping, not a package; `code/ruby` is the package. Includes `foundation`, `vocabulary`.
+`code/` groups by programming language and is not a package; `code/ruby` is the package. Includes `foundation`, `language`.

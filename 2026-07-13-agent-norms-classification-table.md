@@ -86,13 +86,13 @@ Companion to the packaging design. Every current rule in `constant`'s `agent/rul
 
 | Rule | Package | Merge | Notes |
 |---|---|---|---|
-| name-literally-not-by-analogy | vocabulary | — | stays its own rule (the governing principle) |
-| sent-to-phrasing | vocabulary | M3 | vocabulary `substitutes` table |
-| normal-path-not-happy-path | vocabulary | M3 | vocabulary table |
-| say-install-packages-not-vendor | vocabulary | M3 | vocabulary table |
-| say-convey-not-thread | vocabulary | M3 | vocabulary table |
-| terminology-no-slang-mediates | vocabulary | M3 | all rows → vocabulary table (incl. wrap→mediates, a universal verb); only the `Constant`-mediates-a-module *example* is genericized |
-| literal-constants-terminology | **local/vocabulary** | — | `constant`-specific |
+| name-literally-not-by-analogy | language | — | stays its own rule (the governing principle) |
+| sent-to-phrasing | language | M3 | vocabulary `substitutes` table |
+| normal-path-not-happy-path | language | M3 | vocabulary table |
+| say-install-packages-not-vendor | language | M3 | vocabulary table |
+| say-convey-not-thread | language | M3 | vocabulary table |
+| terminology-no-slang-mediates | language | M3 | all rows → vocabulary table (incl. wrap→mediates, a universal verb); only the `Constant`-mediates-a-module *example* is genericized |
+| literal-constants-terminology | **local/language** | — | `constant`-specific |
 | controls-not-factories | testing | M1, M3 | controls trio → one rule; testing table |
 | controls-not-fixtures | testing | M1, M3 | controls trio → one rule |
 | say-control-not-arrange | testing | M1, M3 | controls trio → one rule |
@@ -101,7 +101,7 @@ Companion to the packaging design. Every current rule in `constant`'s `agent/rul
 | tdd-efferent-not-caller | design-by-efferent | M3, M4 | into DBE vocabulary |
 | actuation-not-call | design-by-efferent | M3, M4 | into DBE vocabulary (amends efferent-not-caller) |
 | design-by-efferent | design-by-efferent | M3 | **is** the methodology's name (retires/replaces the former `say-efferent-oriented-design-not-development` rule, removed on disk); into DBE vocabulary |
-| tdd-lexicon | design-by-efferent | M3 | **is** the DBE vocabulary; its general "Retired terms" rows split to the `vocabulary` package's `substitutes` |
+| tdd-lexicon | design-by-efferent | M3 | **is** the DBE vocabulary; its general "Retired terms" rows split to the `language` package's `substitutes` |
 
 ## `test-writing/`
 
@@ -122,13 +122,13 @@ Companion to the packaging design. Every current rule in `constant`'s `agent/rul
 ## Per-package tally
 
 - **foundation** — status-report, next-deferred-item, agent-file-names-iso8601, rules-install-a-mindset (meta-rule), + the `AGENTS.md` framework prose (`rules/observations/deferred/log`).
-- **vocabulary** — the name-literally and no-slang principle rules + one rule per substitute (sent-to, normal-path, install/vendor, convey/thread, wrap/mediates, sweep/conform, land/plain, arm/scenario, cut/increment). No table.
-- **design-by-efferent** — the methodology rules (incl. the M2 hinge-presentation merge and the M4 present-every-prompt merge), auto-record-tdd-dialogue, loop-records, the `loops/` directory, and the DBE **vocabulary** (tdd-lexicon + efferent/actuation/design-by-efferent). Includes foundation, vocabulary, testing.
+- **language** — the language-is-precise premise, the name-literally and no-slang principle rules + one rule per substitute (sent-to, normal-path, install/vendor, convey/thread, wrap/mediates, sweep/conform, land/plain, arm/scenario, cut/increment). No table.
+- **design-by-efferent** — the methodology rules (incl. the M2 hinge-presentation merge and the M4 present-every-prompt merge), auto-record-tdd-dialogue, loop-records, the `loops/` directory, and the DBE **vocabulary** (tdd-lexicon + efferent/actuation/design-by-efferent). Includes foundation, language, testing.
 - **testing** — the test-writing rules, test-report, test-tree, do-not-test-the-platform, assert-error-message, and one rule per substitute (the merged controls rule [M1], verified, protect). No table.
-- **code/ruby** — the Ruby code-style rules, build/new, lib-report. (`code/` is a language-grouping namespace; future `code/sh`, `code/sql` are separate packages.)
+- **code/ruby** — the Ruby code-style rules, build/new, lib-report. (`code/` is a namespace grouping by programming language; future `code/sh`, `code/sql` are separate packages.)
 - **git** — the four commit rules (no-claude-coauthor, run-suite-before-commit, commit-says-task-is-done, subject-first-commit-messages).
 - **docs** — the two documentation rules.
-- **local/** — `local/code/ruby/` (string-outputs, intra-`Constant` `new` privilege), `local/vocabulary/` (literal-constant), `local/testing/` (namespace-variable-suffix).
+- **local/** — `local/code/ruby/` (string-outputs, intra-`Constant` `new` privilege), `local/language/` (literal-constant), `local/testing/` (namespace-variable-suffix).
 - **eventide** — reserved, empty.
 
 ## Coverage
