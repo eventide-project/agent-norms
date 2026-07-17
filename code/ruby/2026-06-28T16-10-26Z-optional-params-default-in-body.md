@@ -24,7 +24,7 @@ end
 
 Coalesce an optional argument only where its value is **actually used**. When the argument is **passed through to another method that is itself responsible for defaulting it**, do **not** coalesce it first — pass it as-is (the `nil`) and let the receiver assign the default.
 
-Coalescing before delegating **double-defaults**: it makes the receiver's own `||=` dead and obscures which method owns the default. A method that merely forwards an argument owns no default for it. So the `||=` is not always "the first lines of the body" — it belongs at the point of use, which may be inside one branch (the other branch delegating raw).
+Coalescing before delegating **double-defaults**: the receiver's own `||=` never fires, and it obscures which method owns the default. A method that merely forwards an argument owns no default for it. So the `||=` is not always "the first lines of the body" — it belongs at the point of use, which may be inside one branch (the other branch delegating raw).
 
 Examples:
 - `Constant::Module#defined?` forwards `inherit` to `Constant.defined?` (which defaults it) in its delegating branch — passing `inherit` raw there — but coalesces `inherit ||= false` in the branch that uses it directly with Ruby's `const_get` / `constants`.

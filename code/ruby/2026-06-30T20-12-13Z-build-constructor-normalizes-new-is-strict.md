@@ -54,8 +54,8 @@ expects.**
 `Constant`? is the name a Symbol to coerce?). When the supertype's factory code
 has just produced a value that is known to be in strict form — e.g. a raw
 `::Module` resolved via `Object.const_get` — that determination logic has nothing
-left to decide, so routing through `build` only adds a dead branch. The supertype
-may go straight to the initializer.
+left to decide, so routing through `build` only adds a decision with one possible
+outcome. The supertype may go straight to the initializer.
 
 Example: `Constant.namespace` resolves a raw module and constructs
 `Constant::Module.new(namespace_mod)` (and `Constant::Module.new(Object)` for the
