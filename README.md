@@ -56,7 +56,7 @@ repository. Sync runs one way only: composite repo → component repositories.
 
 **The component repositories are downstream-only.** They only ever receive; they
 are never an authoring source. Do not commit directly to a component repository —
-its `main` is regenerated from this composite repo's history by `git subtree split`, so
+its `master` is regenerated from this composite repo's history by `git subtree split`, so
 a direct commit is not in that history and is lost or made to conflict on the
 next release. All changes land in the composite repo. A change discovered while working
 in a consuming project is promoted back into the composite repo (via `git subtree
@@ -80,8 +80,8 @@ package's files physically into the project's `agent/rules/` tree so they are
 committed alongside the code and read at session start:
 
 ```
-git subtree add  --prefix agent/rules/testing agent-norms-testing main --squash
-git subtree pull --prefix agent/rules/testing agent-norms-testing main --squash
+git subtree add  --prefix agent/rules/testing agent-norms-testing master --squash
+git subtree pull --prefix agent/rules/testing agent-norms-testing master --squash
 ```
 
 Consult a package's `package.md` for the packages it includes, and add those too.

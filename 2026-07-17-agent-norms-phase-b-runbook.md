@@ -1,6 +1,8 @@
 # Agent Norms — Phase B Runbook (distribution)
 
-Step-by-step for publishing packages from this composite repo to their component repos. Phase A (authoring) is complete for all seven packages; this is the release. **Gated: run only with explicit go-ahead — every push here writes to a public repo under `eventide-project`.**
+Step-by-step for publishing packages from this composite repo to their component repos. **Gated: run only with explicit go-ahead — every push here writes to a public repo under `eventide-project`.**
+
+> **Status: Phase B was executed 2026-07-17** — all seven packages are published and every component repo is on `master` (default; no `main`). This document now serves as the **re-publish procedure** for future releases. The one-time steps (rename `agent-norms-vocabulary`→`-language`, create `agent-norms-design-by-efferent`) are done; a routine re-publish is just the split-and-push primitive to `master`.
 
 ## What Phase B does
 
@@ -27,7 +29,7 @@ Each package lives here as a top-level directory under one shared history. A **c
 
 ## The publish primitive (re-publish, unchanged prefix)
 
-For `foundation`, `testing`, `code/ruby`, `git` — the prefix path is unchanged since the last publish, so the deterministic split **fast-forwards** the component's `main`:
+For `foundation`, `testing`, `code/ruby`, `git` — the prefix path is unchanged since the last publish, so the deterministic split **fast-forwards** the component's `master`:
 
 ```
 PKG=foundation            # or testing, git
@@ -35,7 +37,7 @@ DIR=$PKG                  # code/ruby: DIR=code/ruby, REPO=agent-norms-code-ruby
 REPO=agent-norms-$PKG
 
 git subtree split --prefix="$DIR" -b publish-tmp
-git push "https://github.com/eventide-project/$REPO.git" publish-tmp:main
+git push "https://github.com/eventide-project/$REPO.git" publish-tmp:master
 git branch -D publish-tmp
 ```
 
@@ -47,7 +49,7 @@ The split prefix is the composite path `code/ruby`; the repo flattens to `agent-
 
 ## The rename case — language (do this one carefully)
 
-`vocabulary/` was renamed to `language/` this session. Two consequences: the GitHub repo must be renamed, and the new `--prefix=language` split is a **different history** than the old `agent-norms-vocabulary` `main` (subtree split follows the exact path, so it starts at the rename — it does not share the old synthetic commits). So this repo **resets**, not fast-forwards.
+`vocabulary/` was renamed to `language/` this session. Two consequences: the GitHub repo must be renamed, and the new `--prefix=language` split is a **different history** than the old `agent-norms-vocabulary` repo held (subtree split follows the exact path, so it starts at the rename — it does not share the old synthetic commits). So this repo **resets**, not fast-forwards.
 
 ```
 # 1. Rename the repo (GitHub keeps a redirect from the old name)
@@ -55,7 +57,7 @@ gh repo rename agent-norms-language -R eventide-project/agent-norms-vocabulary
 
 # 2. Regenerate and force-push (history reset is expected and acceptable)
 git subtree split --prefix=language -b publish-tmp
-git push --force "https://github.com/eventide-project/agent-norms-language.git" publish-tmp:main
+git push --force "https://github.com/eventide-project/agent-norms-language.git" publish-tmp:master
 git branch -D publish-tmp
 ```
 
@@ -68,7 +70,7 @@ gh repo create eventide-project/agent-norms-design-by-efferent --public \
   -d "Agent Norms — Design By Efferent: the human-in-the-loop, efferent-first design method"
 
 git subtree split --prefix=design-by-efferent -b publish-tmp
-git push "https://github.com/eventide-project/agent-norms-design-by-efferent.git" publish-tmp:main
+git push "https://github.com/eventide-project/agent-norms-design-by-efferent.git" publish-tmp:master
 git branch -D publish-tmp
 ```
 
@@ -80,7 +82,7 @@ After each publish, confirm the package lands correctly by pulling it into a thr
 PKG=foundation; REPO=agent-norms-$PKG; INSTALL=agent/rules/$PKG   # adjust for code/ruby, language
 D=$(mktemp -d); git -C "$D" init -q
 git -C "$D" subtree add --prefix "$INSTALL" \
-  "https://github.com/eventide-project/$REPO.git" main --squash
+  "https://github.com/eventide-project/$REPO.git" master --squash
 ls "$D/$INSTALL"        # expect the package's rules + package.md + README.md (+ log/ where present)
 rm -rf "$D"
 ```
