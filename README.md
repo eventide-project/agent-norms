@@ -53,6 +53,14 @@ directly.** Publishing a package is a `git subtree split` that extracts one
 package's slice of the monorepo history and pushes it to that package's
 repository. Sync runs one way only: monorepo → package repositories.
 
+**The package repositories are downstream-only.** They only ever receive; they
+are never an authoring source. Do not commit directly to a package repository —
+its `main` is regenerated from this monorepo's history by `git subtree split`, so
+a direct commit is not in that history and is lost or made to conflict on the
+next release. All changes land in the monorepo. A change discovered while working
+in a consuming project is promoted back into the monorepo (via `git subtree
+push` from that project, then reconciled here) and re-published outward.
+
 ## Working as a contributor
 
 Author in the monorepo. You never edit a package repository directly. A release
