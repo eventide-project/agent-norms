@@ -37,9 +37,9 @@ the factory.
 
 **How to apply:** give each domain class a `build` that normalizes its inputs and
 delegates to `new`; keep `new` strict. Construct through the subtype `build`s (or
-`Constant.get`, the universal class-level accessor, which routes to them); reserve
-`new` for the internal, strict primitive. Related: the design doc (Section 2 —
-`new` as mechanical state-recording) and Section 5 (the accessor).
+a universal class-level accessor that routes to them); reserve
+`new` for the internal, strict primitive. Related: the
+robustness-lives-at-the-class-interface rule (the general stance this is one case of).
 
 ## Within the `Constant` family, the supertype factory may call a subtype's `new` directly
 
@@ -81,6 +81,5 @@ outcome is already known.
 **How to apply:** if you are inside the `Constant` family, constructing a family
 subtype, and the input is already the exact strict form the initializer records,
 `new` is allowed and preferable to a `build` call whose normalization is a no-op.
-If any normalization remains to be done, use `build`. Related: the review that
-settled this (`agent/log/2026-07-04T05-49-40Z-whole-project-code-review.md`,
-finding #2).
+If any normalization remains to be done, use `build`. Related: the general
+`build`/`new` distinction above and the robustness-lives-at-the-class-interface rule.

@@ -21,4 +21,4 @@ matters most to the type. Leading with the domain mixin says "this is a
 **How to apply:** In a class that mixes in both, write the domain mixin's
 `include` before any infrastructure mixin's. Put the `initializer` (or other
 macro) call after the infrastructure `include` it depends on. Related: the
-Constant::Literal restructure plan and the namespace/type conventions.
+`build`-normalizes / `new`-is-strict rule.
