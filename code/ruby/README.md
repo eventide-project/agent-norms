@@ -1,0 +1,20 @@
+# Agent Norms — code/ruby
+
+Prescriptive Ruby style.
+
+**Construction and robustness**
+- Robustness lives at the **class interface**, not the instance: the initializer (`new`) is strict and records inputs as-is; the class interface is the forgiving perimeter (coercion, liberal acceptance, uniform returns), and it can sit at increasing distance from the core — a `build` constructor, or a coercion function on an outer module.
+- `build` is the normalizing constructor; `new` is the strict initializer. A supertype acting as a factory of its subtypes may call a subtype's `new` directly once it holds strict-form input.
+
+**Naming and signatures**
+- Never put a preposition in a method name — name the action (`import`, not `import_from`).
+- Optional parameters default to `nil` in the signature; assign the real default in the body (`||=`, or `.nil?` for a settable payload that may be legitimately falsy; don't default an argument you only delegate).
+- A positional-argument default is written tight — `namespace=Object`, no spaces.
+
+**Structure**
+- Don't inline a method-call result as an argument — bind it to an explaining variable first.
+- Include the primary domain mixin before infrastructure mixins.
+
+**Command**: `lib-report` (classify `lib/` by role, construct, method style, API currency, error taxonomy, idioms).
+
+`code/` is a language grouping, not a package; `code/ruby` is the package. Includes `foundation`, `vocabulary`.
