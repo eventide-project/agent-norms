@@ -2,6 +2,8 @@
 
 Companion to the packaging design. Every current rule in `constant`'s `agent/rules/` (plus the `AGENTS.md` framework prose) pinned to a package, with merges and `local/` flagged. Ordered by current folder so nothing is missed; a per-package tally follows.
 
+> **Built and published 2026-07-17.** Two things this table predates: the `vocabulary` package is now **`language`** (the `language` entries below already reflect it; `vocabulary` in Notes columns is the old package name or, where it says "DBE vocabulary", DBE's `vocabulary.md` glossary — which is correct). And the M3 `substitutes` table was superseded by **one rule per substitute** — Notes that mention a "`substitutes` table" describe the abandoned plan, not the built state.
+
 **Merge legend:** **M1** controls trio → one rule (testing) · **M2** hinge-presentation trio → one rule (DBE) · **M3** ~~`substitutes` table~~ → **one rule per substitute, no table** (revised 2026-07-16; each substitution relocates/splits into its own rule file — see the packaging design); DBE keeps its cohesive **vocabulary** glossary · **M4** stale supersessions closed out.
 
 ## `AGENTS.md` (framework prose)
@@ -78,7 +80,7 @@ Companion to the packaging design. Every current rule in `constant`'s `agent/rul
 
 | Rule | Package | Merge | Notes |
 |---|---|---|---|
-| auto-record-tdd-dialogue | design-by-efferent | — | settled |
+| auto-record-design-dialogue | design-by-efferent | — | settled |
 | loop-records | design-by-efferent | — | contributes the `loops/` directory |
 | agent-file-names-use-iso8601-utc-prefix | foundation | — | |
 
@@ -123,7 +125,7 @@ Companion to the packaging design. Every current rule in `constant`'s `agent/rul
 
 - **foundation** — status-report, next-deferred-item, agent-file-names-iso8601, rules-install-a-mindset (meta-rule), + the `AGENTS.md` framework prose (`rules/observations/deferred/log`).
 - **language** — the language-is-precise premise, the name-literally and no-slang principle rules + one rule per substitute (sent-to, normal-path, install/vendor, convey/thread, wrap/mediates, sweep/conform, land/plain, arm/scenario, cut/increment). No table.
-- **design-by-efferent** — the methodology rules (incl. the M2 hinge-presentation merge and the M4 present-every-prompt merge), auto-record-tdd-dialogue, loop-records, the `loops/` directory, and the DBE **vocabulary** (tdd-lexicon + efferent/actuation/design-by-efferent). Includes foundation, language, testing.
+- **design-by-efferent** — the methodology rules (incl. the M2 hinge-presentation merge and the M4 present-every-prompt merge), auto-record-design-dialogue, loop-records, the `loops/` directory, and the DBE **vocabulary** (tdd-lexicon + efferent/actuation/design-by-efferent). Includes foundation, language, testing.
 - **testing** — the test-writing rules, test-report, test-tree, do-not-test-the-platform, assert-error-message, and one rule per substitute (the merged controls rule [M1], verified, protect). No table.
 - **code/ruby** — the Ruby code-style rules, build/new, lib-report. (`code/` is a namespace grouping by programming language; future `code/sh`, `code/sql` are separate packages.)
 - **git** — the four commit rules (no-claude-coauthor, run-suite-before-commit, commit-says-task-is-done, subject-first-commit-messages).
