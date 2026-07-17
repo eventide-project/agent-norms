@@ -18,6 +18,9 @@ Execution plan for the fifth migration increment — the `code/ruby` package: pr
 - `include-domain-mixin-before-infrastructure`
 - `build-constructor-normalizes-new-is-strict` — the general **`build` normalizes / `new` is strict** distinction. See the split below.
 
+**Robustness principle — author (NEW, general):**
+- **Robustness lives at the class interface, not the instance interface.** The instance interface (`new`, the initializer) is **strict** — it records inputs as-is. The class interface is the **convenience layer**, and robustness lives there: liberal acceptance, coercion, uniform returns (liberal in what it accepts, uniform in what it returns). The convenience layer can sit at **increasing distance from the strict core** — a class method (`build`), or, at the furthest, a coercion method not even defined on the instance's class but as a function on an outer module (e.g. a universal accessor routing to subtype constructors). Strict core, forgiving perimeter, perimeter at a distance. This is the general statement of which `string-outputs-permissive-inputs` (constant names) is a `local` application, and it is the same stance as the `build`/`new` rule.
+
 **Command — relocate and generalize:**
 - `lib-report-format` — keep the classification lenses (role/layer, Ruby construct, method style, API currency, error taxonomy, idioms), drop the `Constant`-specific buckets; recompute from the project's `lib/`.
 
@@ -34,7 +37,7 @@ Execution plan for the fifth migration increment — the `code/ruby` package: pr
 
 ## Not migrated — stays `constant`-local
 
-- `string-outputs-permissive-inputs` → `local/code/ruby` — the robustness principle (liberal in what it accepts, uniform in what it returns) applied specifically to **constant names** (anchored on `Module#name`/`#constants`). `Constant`-domain. (The general robustness principle underneath could later be extracted as its own `code/ruby` rule; not in scope here.)
+- `string-outputs-permissive-inputs` → `local/code/ruby` — the robustness principle **applied specifically to constant names** (anchored on `Module#name`/`#constants`). `Constant`-domain. The *general* robustness principle underneath is extracted as its own `code/ruby` rule (see below); this local rule becomes its constant-names application.
 - The intra-family-factory-privilege half of the `build`/`new` rule — **pending the open question**; local if it stays `Constant`-specific, `code/ruby` if judged general.
 
 ## Generalization concerns (flagged, not blocking)
@@ -62,7 +65,7 @@ Create `eventide-project/agent-norms-code-ruby` (public), `git subtree split --p
 ## Open questions
 
 1. **Intra-family-factory privilege — general or `Constant`-local?** It reads as a general principle (supertype-as-factory may call a subtype's `new` directly when holding strict form) illustrated with `Constant` — parallel to the `wrap→mediates` reclassification. **Recommendation: general → `code/ruby`**, with the `Constant.namespace` example genericized; only the example was project-specific.
-2. **`string-outputs-permissive-inputs`** — keep the whole rule `local` (recommended, per classification — it is about constant names specifically), or split out a general "robustness principle" `code/ruby` rule now? Recommend keeping local; extract later if a second use appears.
+2. **~~`string-outputs-permissive-inputs`~~ — RESOLVED (2026-07-17): extract the general robustness rule.** A general `code/ruby` robustness rule is authored (robustness at the class interface, strict instance interface, coercion at increasing distance up to an outer-module function); the constant-names version stays the `local` application. *(Confirm the authored rule's framing at build time.)*
 3. **`lib-report` generalization** — confirm the lenses generalize cleanly with the `Constant` buckets dropped (recommended, parallel to `test-report`).
 
 ## Not done without explicit go-ahead
