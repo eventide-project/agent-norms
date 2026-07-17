@@ -69,11 +69,11 @@ Both are **migration/authoring** events → composite top-level `agent/log/` (on
 
 Create `eventide-project/agent-norms-testing` (public), `git subtree split --prefix=testing`, push to `main`, prove the pull.
 
-## Open questions
+## Open questions — all resolved (2026-07-16)
 
-1. **M1 merged controls rule** — confirm the single rule should cover all three angles the trio spans (the control *helpers*, the example *values*, and the pre-actuation *setup phase*), retiring factories/fixtures/arrange together.
-2. **`test-tree` generalization** — describe the command generically and treat the `constant` `tree.rb` script as an example (recommended), vs. hold `test-tree` for a later pass since it leans hardest on a project-specific script.
-3. **TestBench-shape of the commands** — accept `test-report`/`test-tree` as general (recommended, per the design's "no testbench rules yet"), or add a note that they assume a context/test structure.
+1. **M1 merged controls rule — RESOLVED: one rule, all three angles.** It covers the control *helpers*, the example *values*, and the pre-actuation *setup phase*, retiring factories/fixtures/arrange together.
+2. **`test-tree` generalization — RESOLVED: genericize now.** Describe the command generically (run the suite → print a normalized de-duped context tree); the `constant` `tree.rb` script is an implementation example, not part of the rule.
+3. **TestBench-shape — RESOLVED: accept as general.** No `testbench`-reserved rules exist yet and a context/test tree is a general shape; no caveat added.
 
 ## Not done without explicit go-ahead
 
