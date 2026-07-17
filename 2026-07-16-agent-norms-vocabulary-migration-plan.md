@@ -22,6 +22,7 @@ Its content is *not* method- or test-specific — only phrasing substitutions wi
   | vendor (re-vendor, vendored) | install packages | `say-install-packages-not-vendor` |
   | thread (thread it through) | convey | `say-convey-not-thread` |
   | "initialized with" / "passed to" | sent to | `sent-to-phrasing` |
+  | wrap / wrapper | mediates | `terminology-no-slang-mediates` |
   | sweep | conform | `terminology-no-slang-mediates` |
   | "does that land?" | plain ("is that right?") | `terminology-no-slang-mediates` |
   | arm (of a method/feature) | scenario | `terminology-no-slang-mediates` |
@@ -32,10 +33,11 @@ Its content is *not* method- or test-specific — only phrasing substitutions wi
 
 ## Not migrated — stays `constant`-local
 
-Two substitutions are `constant`-domain, not general, so they do **not** enter the composite package — they stay in `constant`, destined for its `local/vocabulary/` mirror:
+**All rows of `terminology-no-slang-mediates` are universal** and go to the composite `substitutes.md` — including **wrap → mediates** (the general verb for a mediating/accessor relationship). Only its *example* ("a `Constant` mediates a module") is `constant`-specific, and it is genericized on the way in; the substitution itself is not `constant`-domain.
 
-- **wrap → mediates** — "mediates" is the `Constant`↔module verb. The `terminology-no-slang-mediates` rule therefore **splits**: its general rows go to the composite `substitutes.md` (above); the `mediates` row stays `constant`-local.
-- **literal constant** (`literal-constants-terminology`) — entirely `Constant`-domain.
+One substitution is genuinely `constant`-domain and does **not** enter the composite package — it stays in `constant`, destined for its `local/vocabulary/` mirror:
+
+- **literal constant** (`literal-constants-terminology`) — a constant bound to a non-module value; entirely `Constant`-domain.
 
 The `local/` mirror lives in `constant`, never in this composite repo and never split/pushed. Reconciling it (pulling the vocabulary package into `constant`, moving these rows to `local/vocabulary/`) is `constant`-side work, done when `constant` adopts the packages — **out of scope for this increment**.
 
@@ -48,7 +50,7 @@ The M3 consolidation is a **migration/authoring** event, so its decision-log ent
 1. Create `vocabulary/` in the composite repo.
 2. Relocate `name-literally-not-by-analogy.md` unchanged.
 3. Author the no-slang principle rule (principle half of `no-slang-mediates`).
-4. Author `substitutes.md` — consolidate the eight general rows above; leave `mediates` and `literal-constant` for `constant`.
+4. Author `substitutes.md` — consolidate the nine general rows above (genericizing the `mediates` example); leave only `literal-constant` for `constant`.
 5. `package.md` (`include: foundation`) + `README.md`.
 6. Commit; add one M3 consolidation entry to the composite `agent/log/`.
 

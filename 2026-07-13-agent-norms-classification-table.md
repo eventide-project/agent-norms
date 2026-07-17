@@ -91,7 +91,7 @@ Companion to the packaging design. Every current rule in `constant`'s `agent/rul
 | normal-path-not-happy-path | vocabulary | M3 | vocabulary table |
 | say-install-packages-not-vendor | vocabulary | M3 | vocabulary table |
 | say-convey-not-thread | vocabulary | M3 | vocabulary table |
-| terminology-no-slang-mediates | vocabulary | M3 | general slang rows → vocabulary table; **"mediates" → local/vocabulary** |
+| terminology-no-slang-mediates | vocabulary | M3 | all rows → vocabulary table (incl. wrap→mediates, a universal verb); only the `Constant`-mediates-a-module *example* is genericized |
 | literal-constants-terminology | **local/vocabulary** | — | `constant`-specific |
 | controls-not-factories | testing | M1, M3 | controls trio → one rule; testing table |
 | controls-not-fixtures | testing | M1, M3 | controls trio → one rule |
@@ -128,7 +128,7 @@ Companion to the packaging design. Every current rule in `constant`'s `agent/rul
 - **code/ruby** — the Ruby code-style rules, build/new, lib-report. (`code/` is a language-grouping namespace; future `code/sh`, `code/sql` are separate packages.)
 - **git** — the four commit rules (no-claude-coauthor, run-suite-before-commit, commit-says-task-is-done, subject-first-commit-messages).
 - **docs** — the two documentation rules.
-- **local/** — `local/code/ruby/` (string-outputs, intra-`Constant` `new` privilege), `local/vocabulary/` (mediates, literal-constant), `local/testing/` (namespace-variable-suffix).
+- **local/** — `local/code/ruby/` (string-outputs, intra-`Constant` `new` privilege), `local/vocabulary/` (literal-constant), `local/testing/` (namespace-variable-suffix).
 - **eventide** — reserved, empty.
 
 ## Coverage
