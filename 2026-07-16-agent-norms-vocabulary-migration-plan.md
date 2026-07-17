@@ -26,7 +26,7 @@ Nine one-substitution rules — four relocated unchanged, five split out of `ter
 | happy path | normal path | `normal-path-not-happy-path` | relocate unchanged |
 | vendor | install packages | `say-install-packages-not-vendor` | relocate unchanged |
 | thread | convey | `say-convey-not-thread` | relocate unchanged |
-| "initialized with" / "passed to" | sent to | `sent-to-phrasing` | relocate unchanged |
+| "initialized with" / "passed to" | sent to | `sent-to-phrasing` | relocate; genericize the Why (general — sending an argument to a method, not Eventide-specific) |
 | wrap / wrapper | mediates | `terminology-no-slang-mediates` | split out; genericize the `Constant` example |
 | sweep | conform | `terminology-no-slang-mediates` | split out |
 | "does that land?" | plain | `terminology-no-slang-mediates` | split out |
@@ -52,7 +52,7 @@ The one-file-per-substitute decision and the `no-slang-mediates` split are **mig
 ## Phase A — Local
 
 1. Create `vocabulary/` in the composite repo.
-2. Relocate the five unchanged rules: `name-literally`, `normal-path`, `install-packages`, `convey-not-thread`, `sent-to`.
+2. Relocate `name-literally`, `normal-path`, `install-packages`, `convey-not-thread` unchanged; relocate `sent-to` with its Why genericized (general phrasing — sending an argument to a method — not Eventide-specific).
 3. Author the no-slang principle rule (principle half of `no-slang-mediates`).
 4. Split the five substitutions out of `no-slang-mediates` into one rule file each (genericize the `mediates` example); leave only `literal-constant` for `constant`.
 5. `package.md` (`include: foundation`) + `README.md`.
@@ -66,7 +66,7 @@ Create `eventide-project/agent-norms-vocabulary` (public), `git subtree split --
 
 1. **~~No-slang principle placement~~ — RESOLVED (2026-07-16): its own rule**, parallel to `name-literally`.
 2. **~~`substitutes.md` structure~~ — MOOT (2026-07-16):** one rule per substitute, no table.
-3. **`sent-to`** — the classification pins it here (general), but it is Eventide messaging idiom; confirm it isn't `eventide`-reserved. *(Open.)*
+3. **~~`sent-to`~~ — RESOLVED (2026-07-16): general vocabulary.** It names sending an argument to a method — not Eventide-specific — so it stays in `vocabulary`, with its Eventide-attributed Why genericized on relocation.
 
 ## Not done without explicit go-ahead
 
