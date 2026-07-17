@@ -1,10 +1,10 @@
-# Nest a test in a context only when the outcome needs local instrumentation; otherwise name the test directly
+# Enclose a test in a context only when the outcome needs local instrumentation; otherwise name the test directly
 
 A `test` block holds **exactly one assertion** and nothing else (per the
 test-block-is-assertion-only rule). Naming an outcome does **not** require a
 `context` block: TestBench lets a test carry its own name — `test "Outcome name" do … end`.
 
-Use a named **`context`** to nest a `test` when that outcome needs local
+Use a named **`context`** to enclose a `test` when that outcome needs local
 instrumentation — an **explaining variable derived for it**, or a
 **`comment`/`detail`** specific to it — **or** when the context is a **leading
 `When …` condition** (a condition promoted to a context, per the assert-raises
@@ -48,7 +48,7 @@ narration keeps the structure honest and flatter.
 
 **How to apply:** name the `test` directly unless the outcome derives its own
 explaining variable, adds an outcome-local `comment`/`detail`, or is a leading
-`When …` condition; only then nest it in a `context`. When flattening an
+`When …` condition; only then enclose it in a `context`. When flattening an
 over-nested test, flatten **only** when there is no code between the context and
 the `test` (the context holds nothing but the test) **and** the context is not a
 leading `When …` condition. The Constant-class over-nesting was conformed in one
