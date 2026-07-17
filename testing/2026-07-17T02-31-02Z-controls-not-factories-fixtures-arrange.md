@@ -6,7 +6,7 @@ The known, deterministic inputs a test is built from — the helpers that build 
 - **The example values** they produce (and any literal known inputs) are **controls** / control values, never "fixtures".
 - **The setup phase** — establishing the known inputs before the actuation — is the **control** of the test, never "arrange".
 
-So a test reads **control → actuate → assert**.
+So a test reads **control → actuate → observe** (the assertion is only *how* the outcome is observed).
 
 **Why:** "controls" is the established vocabulary of controls-based testing; "factory", "fixture", and "arrange" are imported jargon (factories from build patterns, fixtures from xUnit, arrange from Arrange/Act/Assert) that a reader has to map back onto the domain's one concept. Holding to "controls" keeps the rules, prose, and the code consistent. "Fixture" is doubly confusing where a test framework has its own `Fixture` context object — the known input values are controls, not fixtures.
 
