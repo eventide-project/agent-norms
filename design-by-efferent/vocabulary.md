@@ -1,0 +1,100 @@
+# The Design By Efferent vocabulary: use these terms with these meanings
+
+The lexicon of **Design By Efferent** (DBE) — use this vocabulary, with these meanings, in code, tests, rules, designs, commits, and prose. This is the canonical glossary; the deeper docs defer to it.
+
+## The one-liner
+
+> The AI **generates** straight through, and **gates** at the **hinges** — the **subtle**, **load-bearing** decisions — for the human to **deliberate**; everything else is **mechanical**.
+
+## The terms
+
+| Term | Role | Meaning |
+|---|---|---|
+| **Design By Efferent** / **DBE** | the methodology | The name of the whole approach these rules, this lexicon, and the loop describe. A **design** discipline (tests drive design, not "development"), driven **by the efferent** — the use-site view. A variant *of* TDD (tests are the vehicle); the name foregrounds what makes it distinct: design originated from the efferent reference. |
+| **loop** | the cycle | The DBE cycle — a *distributed* OODA loop (Boyd): the AI **observes** and **acts** (mechanized), the human **orients** and **decides** at the gates. Orientation — design judgment — is the irreplaceable phase, kept with the human. (See "The loop, as a distributed OODA cycle".) |
+| **hinge** | the object | A decision the design turns on — one that is **subtle** *and* **load-bearing**. Where the human's judgment belongs. |
+| **gate** | the mechanism | Where the loop stops and hands a hinge to the human. The interrupt/handoff. (Verb: the loop *gates* at hinges.) |
+| **deliberation** | the human's act | What the human does at a gate: weighs the hinge and decides. *Deliberate* = carefully weighed **and** intentional — the opposite of the AI's averaging. |
+| **mechanical** / **mechanics** | the complement | Everything that isn't a hinge — the AI generates it straight through. |
+| **subtle** (vs **crude**) | first mark of a hinge | The choice takes design judgment that isn't written in the code or tests — it lives in the person. Crude = a tool/pattern/answer you can read off the artifacts. (Per Bellware's subtle/crude-knowledge distinction: https://madabout.software/articles/subtle-knowledge-crude-knowledge/) |
+| **cradle** | the constraint | The efferent test, held during generation — it holds the implementation in position without gripping it rigid, steering toward solubility. |
+| **efferent** | the perspective | The use-site view; designing a unit from the outside in. Never "caller". |
+| **actuation** | the act | The invocation of the unit under test — the first efferent reference, written before the implementation. Never "the call". |
+| **observation** | the act of reading the outcome | What the test observes about the outcome of the actuation. An **assertion** is the mechanism by which an observation is implemented, not the thing itself. |
+| **load-bearing** | second mark of a hinge | Other work rests on the choice, so a wrong one spreads and sticks: cheap to fix now, costly later. |
+| **solubility** | the quality | The general design-quality term (see the `vocabulary` package's solubility rule): how readily a unit dissolves into use. In DBE it is the target of generation and a known hinge — what the efferent view discovers. |
+
+## "Efferent", not "caller"
+
+Name the use-site perspective **efferent** — the view that conducts outward from the unit toward its use. Never "caller," "caller-side," "caller-first," or "caller's-eye." The test is the first *efferent reference* to the unit; the interface is designed from the *efferent side*; the view that discovers solubility is the *efferent view*.
+
+"Efferent" is the established term for designing a unit from the outside in — from the standpoint of what uses it. "Caller" is a looser, mechanism-flavored synonym. Holding to one term keeps the rules and prose consistent. ("Efferent in, efferent out.") It is the *perspective* word that is always "efferent."
+
+## "Actuation", not "the call"
+
+The invocation of the unit under test — what the test actuates, the first efferent reference — is the **actuation**. Not "the call," "the call shape," or "the call site." Say **actuation** (and "actuation shape"; use "use site" for where it is invoked).
+
+The verb "to call a method" in a pure-mechanism sense, and "call it X" meaning *name* it, are different uses and not covered.
+
+## "Design By Efferent", not "efferent-oriented design"
+
+Use **Design By Efferent** in full, or **DBE** as shorthand, wherever you name the methodology. The three capitalized words give the acronym: **D**esign **B**y **E**fferent.
+
+The name states the essence: it is a **design** discipline (tests drive design — see the "TDD designs, coverage protects" rule), which is why the name says *Design*, not "Development"; and the design is driven **by the efferent** — the use-site view. The **actuation**, the first efferent reference to the unit, is written before any implementation, forcing the interface outside-in.
+
+Do not name the methodology "efferent-oriented design" (retired), and do not name it "test-driven development" or "development" — **TDD is the genus DBE belongs to; DBE is its name.** The lexicon term **efferent** (the use-site perspective) is unaffected by the retirement; only the *name of the methodology* changed.
+
+## "Load-bearing", explained
+
+The two marks of a hinge — **subtle** and **load-bearing** — are independent, and a hinge needs **both**. "Subtle" is about *who can make the call* (the judgment lives in the person vs. it can be read off the artifacts). "Load-bearing" is about *what depends on the call*.
+
+**The metaphor is literal, not decorative.** In a building, a *load-bearing* wall carries the weight of the structure above it; a *partition* wall just divides a room. You can move a partition wall freely. Move or misplace a load-bearing wall and everything resting on it shifts or collapses — and the later you do it, the more has been built on top, the more it costs.
+
+**Applied to a decision:** a choice is load-bearing when **other work rests on it** — later code, the tests, and other decisions all assume it. So a wrong load-bearing choice has two properties:
+
+- It **spreads** — everything built on it inherits the mistake.
+- It **sticks** — once things rest on it, undoing it means undoing them too.
+
+Together these give the **asymmetry that justifies the gate**: a load-bearing choice is **cheap to fix now** (before anything rests on it) and **costly to fix later** (after). The human's judgment has the most leverage *before* the weight is added — which is exactly why the loop gates there and not afterward.
+
+**How to recognize it:** ask *if this choice is wrong, how far does the damage spread, and how expensive is it to reverse once we've built on it?* Wide spread + expensive reversal → load-bearing. Local + cheap to change → not.
+
+**Why both marks are required:**
+
+- Load-bearing **but crude** (the right answer is readable off the code/tests/patterns) → the AI can make it; no gate needed, even though much rests on it.
+- Subtle **but not load-bearing** (takes judgment, but the choice is local and cheaply changed) → not worth stopping the human; gating it is ceremony.
+- **Subtle *and* load-bearing** → a hinge. Gate it.
+
+**Example:** the **actuation** — the efferent shape of the invocation — is load-bearing: the test, the observations, and the implementation all rest on it, so a wrong shape spreads into all of them and gets costly to change once code depends on it (which is why it is the first and highest-leverage gate). By contrast, the wording of a `comment` line is not load-bearing — nothing rests on it, and it is changed in seconds.
+
+## The loop, as a distributed OODA cycle
+
+"The loop" — the DBE cycle — is a **distributed OODA loop** (John Boyd: **O**bserve, **O**rient, **D**ecide, **A**ct). Boyd's loop is one mind's decision cycle; here the four phases are **split across two agents**, and the split is the whole point.
+
+| OODA phase | Owner | In the loop |
+|---|---|---|
+| **Observe** | AI | surfaces the state — the proposed actuation, the candidate options, the test, the run result |
+| **Orient** | **human** | **deliberates** — weighs the hinge against design judgment (the standard of solubility, subtle knowledge, experience) |
+| **Decide** | **human** | chooses at the **gate** — selects an option, dictates, or accepts |
+| **Act** | AI | **generates** within the cradle |
+
+**Orient is the load-bearing phase — which is why the human owns it.** Boyd held that Orient dominates the loop: it shapes what you observe, what you decide, and how you act. This method's thesis is identical — the human's **orientation** (design judgment) is the irreplaceable locus, while Observe and Act are mechanized to the AI. The AI's failure mode, "regressing to the average," is a **degraded orientation**: oriented to the mean of all code rather than the well-designed subset. The loop exists to route through the human's orientation at the moments it bears weight — the hinges.
+
+**Implicit guidance = mechanical.** Boyd's loop has a fast path — *implicit guidance and control* — where action flows straight from orientation, bypassing explicit Decide. That is exactly **mechanical** generation: once orientation is settled (the cradle set, solubility clear), the AI generates straight through. The **gate** — an explicit Decide — fires only at a **hinge**.
+
+**What does not transfer.** OODA is best known for its *adversarial, tempo* use — cycle faster than an opponent, get "inside" their loop, collapse their orientation. There is no adversary in DBE; speed-as-weapon does not apply, and importing it would mislead. What transfers is the **structure** — the four phases and the primacy of Orient — not the **contest**.
+
+## Retired terms (do not use)
+
+- **discriminator** → there is no test-noun; the test is just "is this a hinge?"
+- **intrinsic** → **subtle**
+- **asymmetric** → **load-bearing**
+- **capability-independent** → state it plainly (subtlety is about the design, not the model)
+- **non-hinge** → **mechanical**
+- **caller** → **efferent**
+- **the call** (for the invocation of the unit under test) → **actuation**
+- **efferent-oriented design** (as the methodology's name) → **Design By Efferent** / **DBE**
+
+**Why:** The terminology is the conveyable output of this work — it is how the approach is taught to other engineers. Scattering it across observations and a digest left no authoritative source and risked drift; one binding glossary keeps usage consistent and avoids the overloaded or academic words this method rejects (e.g. discriminator, intrinsic, "given", "non-hinge"). Each term was chosen for solubility: plain, positive where possible, and free of programming collisions. Two competing "the name" declarations would drift, so DBE is the single canonical name.
+
+**How to apply:** Use these words, with these meanings, wherever you write about DBE. Prefer them over synonyms; do not reintroduce a retired term. Related: the DBE-as-design-tool, first-turn, human-in-the-loop, hinge-cycle, and "TDD designs, coverage protects" rules; the `vocabulary` package's solubility rule and its name-literally standard.

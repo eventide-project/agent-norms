@@ -4,7 +4,7 @@ Every file in a subdirectory of `agent/` — `rules/`, `log/`, `deferred/`, `obs
 
 **Format:** `YYYY-MM-DDTHH-MM-SSZ-<kebab-slug>.md` — date and time joined by `T`, the trailing `Z` marking UTC, and the time's colons written as hyphens for filesystem safety (e.g. `2026-07-01T20-40-00Z-some-slug.md`).
 
-**Exemption — package-level structural files.** A package's `package.md` (its `include:` dependency declaration) and `README.md` (its introduction) do **not** take the prefix. They are structural files — a manifest and an intro — not dated agent artifacts, and they are the natural repo-root files of each component repo, so a datetime prefix would be noise.
+**Exemption — package-level structural files.** A package's structural files do **not** take the prefix: `package.md` (its `include:` dependency declaration), `README.md` (its introduction), and `vocabulary.md` (its glossary, where the package has a cohesive lexicon of interlocking terms). They are named by what they are — a manifest, an intro, a glossary — not dated agent artifacts, and they are the natural repo-root files of each component repo, so a datetime prefix would be noise. A package's individual dated artifacts — its rules and its `log/` entries — always take the prefix.
 
 **Why:** one consistent, UTC-normalized, lexically-sortable prefix across every agent artifact means files sort chronologically regardless of which directory they live in, ordering within a day is preserved, and no timezone ambiguity or drift creeps in between machines or sessions. A date-only prefix (`YYYY-MM-DD-slug`) loses within-day ordering and does not declare its timezone.
 
