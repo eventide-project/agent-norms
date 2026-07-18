@@ -24,7 +24,8 @@ Prescriptive Ruby style.
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add --prefix agent/rules/code/ruby https://github.com/eventide-project/agent-norms-code-ruby.git master --squash
+git subtree add  --prefix agent/rules/code/ruby https://github.com/eventide-project/agent-norms-code-ruby.git master --squash
+git subtree pull --prefix agent/rules/code/ruby https://github.com/eventide-project/agent-norms-code-ruby.git master --squash
 ```
 
 It includes `foundation` and `language` — install those too.

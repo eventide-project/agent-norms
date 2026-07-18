@@ -34,7 +34,8 @@ This package includes no others — everything else includes it.
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add --prefix agent/rules/foundation https://github.com/eventide-project/agent-norms-foundation.git master --squash
+git subtree add  --prefix agent/rules/foundation https://github.com/eventide-project/agent-norms-foundation.git master --squash
+git subtree pull --prefix agent/rules/foundation https://github.com/eventide-project/agent-norms-foundation.git master --squash
 ```
 
 This package has no dependencies.
