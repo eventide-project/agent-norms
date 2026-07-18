@@ -13,7 +13,7 @@ reuse: a project adopts whole packages, never individual rules.
 - **[language](https://github.com/eventide-project/agent-norms-language)** — how language is used: precisely. Words are load-bearing, so a
   word choice is a design decision. Name concepts literally, drop slang, and one
   rule per substitution.
-- **[design-by-efferent](https://github.com/eventide-project/agent-norms-design-by-efferent)** — the human-in-the-loop, efferent-first design method
+- **[design-by-efferent](https://github.com/eventide-project/agent-norms-design-by-efferent)** — human-in-the-loop, efferent-first design method
   (DBE): hinges and gates, the actuation-first cycle, and the method's own
   `vocabulary.md` lexicon. An updated TDD variant with accommodations for AI.
   Contributes the `loops/` artifact directory.
