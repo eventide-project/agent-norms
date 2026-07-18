@@ -1,6 +1,6 @@
 # Agent Norms — foundation
 
-The `agent/` artifact framework that every other package builds on.
+The `agent/` [artifact framework](https://github.com/eventide-project/agent-norms) that every other package builds on.
 
 All agent artifacts for a project live under a single top-level `agent/` folder, so
 they are committed to git alongside the code and read at the start of each session
