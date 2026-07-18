@@ -41,8 +41,13 @@ Includes `foundation`, `language`, `testing`.
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add  --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
-git subtree pull --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
+git subtree add --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
 ```
 
 It includes `foundation`, `language`, and `testing` — install those too.
+
+**Refresh from upstream** periodically to pull the latest rules:
+
+```
+git subtree pull --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
+```
