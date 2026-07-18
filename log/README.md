@@ -1,6 +1,6 @@
 # Migration records
 
-The design and execution history of migrating `constant`'s `agent/rules/` into the Agent Norms packages. Kept for the record; not needed to *use* the packages (see the repo-root `README.md`) or to author them (see `CONTRIBUTING.md`).
+The design and execution history of migrating [`constant`](https://github.com/eventide-project/constant)'s `agent/rules/` into the Agent Norms packages. Kept for the record; not needed to *use* the packages (see the repo-root `README.md`) or to author them (see `CONTRIBUTING.md`).
 
 - **`…-packaging-design.md`** — the design of record: package types, dependency graph, workflow, settled decisions.
 - **`…-classification-table.md`** — every source rule pinned to its package, with merges and `local/` flagged.
