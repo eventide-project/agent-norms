@@ -13,6 +13,10 @@ written:
 
 This is a standalone package: it includes no other packages.
 
+```
+docs  →  (nothing — standalone)
+```
+
 ## Installing into a project
 
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:

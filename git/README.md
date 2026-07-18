@@ -17,6 +17,10 @@ The rules in this package govern how commits are made and worded:
 
 This is a standalone package: it includes no other packages.
 
+```
+git  →  (nothing — standalone)
+```
+
 ## Installing into a project
 
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:

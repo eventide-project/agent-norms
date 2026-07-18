@@ -23,6 +23,10 @@ Controls-based test-writing conventions. Not tied to a specific test-framework A
 
 Includes `foundation`, `language`.
 
+```
+testing  →  foundation, language
+```
+
 ## Installing into a project
 
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:

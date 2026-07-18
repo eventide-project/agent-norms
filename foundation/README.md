@@ -29,6 +29,10 @@ design-by-efferent contributes `agent/loops/`); foundation owns only
 
 This package includes no others — everything else includes it.
 
+```
+foundation  →  (nothing — the base every other package builds on)
+```
+
 ## Installing into a project
 
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:

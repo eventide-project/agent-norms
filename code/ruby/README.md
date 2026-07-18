@@ -19,6 +19,10 @@ Prescriptive Ruby style.
 
 `code/` groups by programming language and is not a package; `code/ruby` is the package. Includes `foundation`, `language`.
 
+```
+code/ruby  →  foundation, language
+```
+
 ## Installing into a project
 
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:

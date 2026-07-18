@@ -36,6 +36,10 @@ The one-liner:
 
 Includes `foundation`, `language`, `testing`.
 
+```
+design-by-efferent  →  foundation, language, testing
+```
+
 ## Installing into a project
 
 Install with `git subtree` — the files land in your project's `agent/rules/` tree, committed alongside your code and read at session start:
