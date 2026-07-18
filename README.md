@@ -80,8 +80,8 @@ package's files physically into the project's `agent/rules/` tree so they are
 committed alongside the code and read at session start:
 
 ```
-git subtree add  --prefix agent/rules/testing agent-norms-testing master --squash
-git subtree pull --prefix agent/rules/testing agent-norms-testing master --squash
+git subtree add  --prefix agent/rules/testing https://github.com/eventide-project/agent-norms-testing.git master --squash
+git subtree pull --prefix agent/rules/testing https://github.com/eventide-project/agent-norms-testing.git master --squash
 ```
 
 Consult a package's `package.md` for the packages it includes, and add those too.
