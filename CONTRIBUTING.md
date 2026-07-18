@@ -55,7 +55,7 @@ git branch -D publish-tmp
 the component repo diverged (a direct commit, which the downstream-only rule
 forbids). The full step-by-step for every package — including the one-time repo
 create/rename cases — is the **Phase B checklist**
-(`2026-07-17-agent-norms-phase-b-checklist.md`) and its **runbook**.
+(`migration/2026-07-17-agent-norms-phase-b-checklist.md`) and its **runbook**.
 
 ## Push-back (fallback only)
 
