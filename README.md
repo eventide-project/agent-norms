@@ -73,6 +73,30 @@ A refinement discovered while working inside a consuming project is promoted bac
 into the composite repo and re-published outward, so the rules stay live without the
 component repositories ever becoming independent sources.
 
+### Publishing a package
+
+After committing a change here, re-publish the affected package by splitting its
+directory and pushing to the component repo's `master`. For a package whose
+directory is unchanged in path (all but a rename), the deterministic split
+fast-forwards — guard for it before pushing:
+
+```
+git subtree split --prefix=testing -b publish-tmp
+# confirm fast-forward, then push:
+git merge-base --is-ancestor \
+  "$(git ls-remote https://github.com/eventide-project/agent-norms-testing.git master | cut -f1)" \
+  publish-tmp && \
+git push https://github.com/eventide-project/agent-norms-testing.git publish-tmp:master
+git branch -D publish-tmp
+```
+
+`code/ruby` splits from the nested path (`--prefix=code/ruby`) into
+`agent-norms-code-ruby`. If a push is **rejected**, stop — do not force; it means
+the component repo diverged (a direct commit, which the downstream-only rule
+forbids). The full step-by-step for every package — including the one-time repo
+create/rename cases — is the **Phase B checklist**
+(`2026-07-17-agent-norms-phase-b-checklist.md`) and its **runbook**.
+
 ### Push-back (fallback only)
 
 The normal way to change a rule is to edit it in the composite repo and re-publish.
