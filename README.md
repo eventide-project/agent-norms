@@ -74,7 +74,17 @@ git subtree add --prefix agent/rules/docs                https://github.com/even
 git subtree add --prefix agent/rules/design-by-efferent  https://github.com/eventide-project/agent-norms-design-by-efferent.git  master --squash
 ```
 
-Refresh any package later with the same line using `git subtree pull`.
+Refresh any package later using `git subtree pull`:
+
+```
+git subtree pull --prefix agent/rules/foundation          https://github.com/eventide-project/agent-norms-foundation.git          master --squash
+git subtree pull --prefix agent/rules/language            https://github.com/eventide-project/agent-norms-language.git            master --squash
+git subtree pull --prefix agent/rules/testing             https://github.com/eventide-project/agent-norms-testing.git             master --squash
+git subtree pull --prefix agent/rules/code/ruby           https://github.com/eventide-project/agent-norms-code-ruby.git           master --squash
+git subtree pull --prefix agent/rules/git                 https://github.com/eventide-project/agent-norms-git.git                 master --squash
+git subtree pull --prefix agent/rules/docs                https://github.com/eventide-project/agent-norms-docs.git                master --squash
+git subtree pull --prefix agent/rules/design-by-efferent  https://github.com/eventide-project/agent-norms-design-by-efferent.git  master --squash
+```
 
 ## Project-local rules
 
