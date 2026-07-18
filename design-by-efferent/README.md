@@ -45,7 +45,7 @@ git subtree add  --prefix agent/rules/design-by-efferent https://github.com/even
 git subtree pull --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
 ```
 
-It includes `foundation`, `language`, and `testing` — install those too.
+It includes `foundation`, `language`, and `testing` — install those too, or run `sh agent/rules/design-by-efferent/install-dependencies.sh` from your project root.
 
 **Refresh from upstream** periodically to pull the latest rules:
 

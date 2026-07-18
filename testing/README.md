@@ -32,7 +32,7 @@ git subtree add  --prefix agent/rules/testing https://github.com/eventide-projec
 git subtree pull --prefix agent/rules/testing https://github.com/eventide-project/agent-norms-testing.git master --squash
 ```
 
-It includes `foundation` and `language` — install those too.
+It includes `foundation` and `language` — install those too, or run `sh agent/rules/testing/install-dependencies.sh` from your project root.
 
 **Refresh from upstream** periodically to pull the latest rules:
 

@@ -45,7 +45,7 @@ git subtree add  --prefix agent/rules/language https://github.com/eventide-proje
 git subtree pull --prefix agent/rules/language https://github.com/eventide-project/agent-norms-language.git master --squash
 ```
 
-It includes `foundation` — install that too.
+It includes `foundation` — install that too, or run `sh agent/rules/language/install-dependencies.sh` from your project root.
 
 **Refresh from upstream** periodically to pull the latest rules:
 

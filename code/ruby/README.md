@@ -28,7 +28,7 @@ git subtree add  --prefix agent/rules/code/ruby https://github.com/eventide-proj
 git subtree pull --prefix agent/rules/code/ruby https://github.com/eventide-project/agent-norms-code-ruby.git master --squash
 ```
 
-It includes `foundation` and `language` — install those too.
+It includes `foundation` and `language` — install those too, or run `sh agent/rules/code/ruby/install-dependencies.sh` from your project root.
 
 **Refresh from upstream** periodically to pull the latest rules:
 
