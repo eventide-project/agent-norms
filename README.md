@@ -6,21 +6,21 @@ reuse: a project adopts whole packages, never individual rules.
 
 ## Packages
 
-- **foundation** — the `agent/` artifact framework: the
+- **[foundation](https://github.com/eventide-project/agent-norms-foundation)** — the `agent/` artifact framework: the
   `rules`/`observations`/`deferred`/`log` directories and how to work with them,
   the one-line decision-log format, and the ISO-8601-UTC filename convention.
   Everything includes it.
-- **language** — how language is used: precisely. Words are load-bearing, so a
+- **[language](https://github.com/eventide-project/agent-norms-language)** — how language is used: precisely. Words are load-bearing, so a
   word choice is a design decision. Name concepts literally, drop slang, and one
   rule per substitution.
-- **design-by-efferent** — the human-in-the-loop, efferent-first design method
+- **[design-by-efferent](https://github.com/eventide-project/agent-norms-design-by-efferent)** — the human-in-the-loop, efferent-first design method
   (DBE): hinges and gates, the actuation-first cycle, and the method's own
   `vocabulary.md` lexicon. Contributes the `loops/` artifact directory.
-- **testing** — controls-based test-writing conventions: variable prefixes, test
+- **[testing](https://github.com/eventide-project/agent-norms-testing)** — controls-based test-writing conventions: variable prefixes, test
   structure and naming, assertion form.
-- **code/ruby** — prescriptive Ruby style.
-- **git** — commit conventions.
-- **docs** — documentation conventions for design docs and implementation plans.
+- **[code/ruby](https://github.com/eventide-project/agent-norms-code-ruby)** — prescriptive Ruby style.
+- **[git](https://github.com/eventide-project/agent-norms-git)** — commit conventions.
+- **[docs](https://github.com/eventide-project/agent-norms-docs)** — documentation conventions for design docs and implementation plans.
 
 Each package declares its dependencies in a `package.md` file with an `include:`
 line. Including a package pulls in the packages it includes.
