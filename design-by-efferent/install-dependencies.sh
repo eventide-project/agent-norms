@@ -6,11 +6,8 @@ set -e
 add() {
   prefix="agent/rules/$1"
   repo="https://github.com/eventide-project/agent-norms-$1.git"
-  if [ -d "$prefix" ]; then
-    git subtree pull --prefix "$prefix" "$repo" master --squash
-  else
-    git subtree add  --prefix "$prefix" "$repo" master --squash
-  fi
+  [ -d "$prefix" ] || git subtree add --prefix "$prefix" "$repo" master --squash
+  git subtree pull --prefix "$prefix" "$repo" master --squash
 }
 
 add foundation
