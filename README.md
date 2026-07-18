@@ -28,25 +28,19 @@ below (each has its own repository).
 - **[docs](https://github.com/eventide-project/agent-norms-docs)**. Documentation conventions for design docs and implementation plans.
 
 A package that has dependencies carries an `install-dependencies.sh` that installs
-them; a standalone package has none. Including a package pulls in the packages it
-builds on. The tree below nests each package under what it builds on (indentation
-= "includes"):
+them; a standalone package has none. Each arrow below points from a package to the
+packages it depends on (`→` reads "includes"):
 
 ```
-foundation                       (base — everything builds on it)
-└── language
-    ├── testing
-    │   └── design-by-efferent
-    └── code/ruby
+design-by-efferent  →  foundation, language, testing
+testing             →  foundation, language
+code/ruby           →  foundation, language
+language            →  foundation
 
-git                              (standalone — no dependencies)
-docs                             (standalone — no dependencies)
+foundation          →  (nothing — the base every other package builds on)
+git                 →  (nothing — standalone)
+docs                →  (nothing — standalone)
 ```
-
-Read top-down, a package includes every package above it in its branch:
-`design-by-efferent` pulls in `testing`, `language`, and `foundation`; `testing`
-and `code/ruby` pull in `language` and `foundation`; `language` pulls in
-`foundation`.
 
 ## Using a package in a project
 
