@@ -4,18 +4,18 @@ How language is used: precisely. A word is not a label applied to a thought afte
 
 **The premise**
 
-- **language-is-precise-here** — words are load-bearing, not decoration; a word choice is a design decision. Precision is not formality: the most precise word is very often the plainest one. Everything below follows from this.
+- **language-is-precise-here**. Words are load-bearing, not decoration; a word choice is a design decision. Precision is not formality: the most precise word is very often the plainest one. Everything below follows from this.
 
 **The two disciplines that make it achievable**
 
-- **name-literally-not-by-analogy** — name a concept by describing what it literally is; no analogies, opaque codes, or academic jargon.
-- **no-slang** — use literal, non-figurative terms in prose and in conversation, not only in the code.
+- **name-literally-not-by-analogy**. Name a concept by describing what it literally is; no analogies, opaque codes, or academic jargon.
+- **no-slang**. Use literal, non-figurative terms in prose and in conversation, not only in the code.
 
 **One general term-with-meaning**
 
-- **solubility** — how readily a unit dissolves into use; usable and transparent from the standpoint of what uses it, as simple as it should be and no simpler. The quality the name-literally test serves, and the criterion a design is judged against. Methods that build on it (e.g. `design-by-efferent`, where it is a hinge) reference it here rather than redefining it.
+- **solubility**. How readily a unit dissolves into use; usable and transparent from the standpoint of what uses it, as simple as it should be and no simpler. The quality the name-literally test serves, and the criterion a design is judged against. Methods that build on it (e.g. `design-by-efferent`, where it is a hinge) reference it here rather than redefining it.
 
-**The substitutions** — one rule each, every one an instance of the premise: a loose word was carrying a loose concept, and the exact word took its place.
+**The substitutions**. One rule each, every one an instance of the premise: a loose word was carrying a loose concept, and the exact word took its place.
 
 | Say | Not |
 |---|---|

@@ -1,12 +1,12 @@
 # Agent Norms — design-by-efferent
 
-**Design By Efferent** (DBE) — human-in-the-loop, efferent-first design method. An updated TDD variant with accommodations for AI: tests are the vehicle and design is the point — the **actuation**, the first efferent reference to a unit, is written before any implementation, forcing the interface outside-in.
+**Design By Efferent** (DBE). Human-in-the-loop, efferent-first design method. An updated TDD variant with accommodations for AI: tests are the vehicle and design is the point — the **actuation**, the first efferent reference to a unit, is written before any implementation, forcing the interface outside-in.
 
 The one-liner:
 
 > The AI **generates** straight through, and **gates** at the **hinges** — the **subtle**, **load-bearing** decisions — for the human to **deliberate**; everything else is **mechanical**.
 
-**The vocabulary** — `vocabulary.md` is the method's lexicon: loop, hinge, gate, deliberation, mechanical, subtle, cradle, efferent, actuation, observation, load-bearing, and the DBE name itself. It carries the distributed-OODA framing (the human owns Orient; the AI owns Observe and Act) and the retired terms. Read it first — the rules below use its words with its meanings.
+**The vocabulary**. `vocabulary.md` is the method's lexicon: loop, hinge, gate, deliberation, mechanical, subtle, cradle, efferent, actuation, observation, load-bearing, and the DBE name itself. It carries the distributed-OODA framing (the human owns Orient; the AI owns Observe and Act) and the retired terms. Read it first — the rules below use its words with its meanings.
 
 **The method**
 - DBE is a design tool, not a testing ritual — the test is a **cradle** for generation, not a pass/fail gate.

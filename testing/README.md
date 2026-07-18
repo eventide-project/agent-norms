@@ -1,6 +1,6 @@
 # Agent Norms — testing
 
-Controls-based test-writing conventions — not tied to a specific test-framework API.
+Controls-based test-writing conventions. Not tied to a specific test-framework API.
 
 **Structure and naming**
 - Actuate the concern once at the top; assert each outcome in its own nested context (`tdd-test-structure`).

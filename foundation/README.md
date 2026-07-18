@@ -7,13 +7,13 @@ they are committed to git alongside the code and read at the start of each sessi
 rather than recalled. Foundation defines the four core artifact directories and how
 to work with them; each has its own rule in this package:
 
-- **`agent/rules/`** — binding project rules, one per file, read and followed every
+- **`agent/rules/`**. Binding project rules, one per file, read and followed every
   session.
-- **`agent/observations/`** — working hypotheses and rule-candidates still under
+- **`agent/observations/`**. Working hypotheses and rule-candidates still under
   discovery; not yet binding.
-- **`agent/deferred/`** — design changes postponed until the current task finishes;
+- **`agent/deferred/`**. Design changes postponed until the current task finishes;
   a queue, not a permanent record.
-- **`agent/log/`** — the decision log: one file per decision, a one-line title.
+- **`agent/log/`**. The decision log: one file per decision, a one-line title.
 
 Two conventions cut across all of them: the **ISO-8601-UTC filename prefix**
 (`agent-file-names`) that makes every artifact sort chronologically and declare its

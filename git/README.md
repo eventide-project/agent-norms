@@ -4,14 +4,14 @@ Commit conventions for a project's git history.
 
 The rules in this package govern how commits are made and worded:
 
-- **No Claude co-author trailer** — commits appear as authored by the user
+- **No Claude co-author trailer**. Commits appear as authored by the user
   only; omit any `Co-Authored-By: Claude …` attribution.
-- **Run the suite before considering a commit** — a passing test suite is a
+- **Run the suite before considering a commit**. A passing test suite is a
   precondition of the commit decision, not a step taken after deciding to
   commit, so history stays verified at every commit.
-- **Commit messages state the fact, not the bookkeeping** — write "Task 9 is
+- **Commit messages state the fact, not the bookkeeping**. Write "Task 9 is
   done", never "mark Task 9 done".
-- **Subject-first commit messages** — the subject of the change leads, in
+- **Subject-first commit messages**. The subject of the change leads, in
   passive voice and indicative mood ("Widget reconciliation is corrected"), so
   a scanned log surfaces what changed first.
 
