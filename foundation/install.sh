@@ -1,5 +1,5 @@
 #!/bin/sh
-# Install (or refresh) the foundation package AND switch the framework on.
+# Install (or refresh) the foundation package AND activate the framework.
 # Foundation is standalone, but it owns the bootstrap: this script places the
 # project-root AGENTS.md that makes agent/rules/ get read at session start.
 # Run from the root of the consuming project.
@@ -66,7 +66,7 @@ else
       echo "Appended the Agent Norms bootstrap to AGENTS.md."
       ;;
     *)
-      echo "Left AGENTS.md unchanged. Paste the section above into it to switch the framework on."
+      echo "Left AGENTS.md unchanged. Paste the section above into it to activate the framework."
       ;;
   esac
 fi
