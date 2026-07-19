@@ -45,14 +45,22 @@ foundation  →  (nothing — the base every other package builds on)
 
 ## Installing into a project
 
-Install with `git subtree` — it puts the files in your project's `agent/rules/` tree, committed alongside your code and read at session start:
+Foundation carries an **`install.sh`** — the only package that does, because it also has to switch the framework on. Run it from your project root:
+
+```
+sh install.sh
+```
+
+It installs foundation and then places a **root `AGENTS.md`** that tells the agent to read `agent/rules/` at the start of every session. That root file is what actually activates the framework: `git subtree` can only put files under `agent/rules/`, never at the project root, so without this step the rules are installed but nothing reads them. If you already have an `AGENTS.md`, the script shows you the exact text, explains the effect, and asks before appending — it never edits your file silently.
+
+You can install with plain `git subtree` instead, but then you must add the root `AGENTS.md` yourself or the framework stays inactive:
 
 ```
 git subtree add  --prefix agent/rules/foundation https://github.com/waytide/foundation.git master --squash
 git subtree pull --prefix agent/rules/foundation https://github.com/waytide/foundation.git master --squash
 ```
 
-This package has no dependencies.
+This package has no dependencies. (The composite `install-all.sh` installs every package and runs this same bootstrap for you.)
 
 **Refresh from upstream** periodically to pull the latest rules:
 

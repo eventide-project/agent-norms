@@ -1,5 +1,6 @@
 #!/bin/sh
-# Install (or refresh) every agent-norms package into a consuming project.
+# Install (or refresh) every Waytide package into a consuming project, then
+# activate the framework by placing the project-root AGENTS.md.
 # Run from the root of the consuming project.
 set -e
 
@@ -21,3 +22,8 @@ add code/ruby           code-ruby
 add git                 git
 add plan                plan
 add design-by-efferent  design-by-efferent
+
+# Activate the framework: place the project-root AGENTS.md. Foundation is
+# installed above, so run its AGENTS.md-only mode (it won't re-add itself).
+# The bootstrap logic lives only in foundation/install.sh — not duplicated here.
+sh agent/rules/foundation/install.sh agents-md

@@ -24,12 +24,14 @@ The crux: **`foundation` owns the bootstrap, but `foundation` is standalone and 
 
 **Recommendation:** give **`foundation` its own install script** (e.g. `foundation/install.sh`), breaking the "standalone packages carry no script" convention *deliberately*, because placing the root bootstrap is foundation's responsibility, not a dependency step. That script — `git subtree add` foundation, then create-or-append the root `AGENTS.md` — becomes the single canonical way to install the framework's base, and it directly covers the common "install foundation" path. `install-all.sh` then calls it (or repeats the root step) so the all-in path is covered too; the bare manual `subtree add` path is documented as needing the root file.
 
-**Still open (remaining work):**
-- **`install-all.sh` integration.** Have the all-in installer cover the root step too — either call `foundation/install.sh` or repeat the create-or-append. (Idempotence / non-clobber is already handled in `foundation/install.sh` via the `grep` guard.)
-- **Document the manual path** in foundation's README: a bare `git subtree add` of foundation does *not* place the root file — point at `install.sh` (or a manual copy) as the way to activate the framework. The README should also mention that foundation now carries an `install.sh` (unusual for a standalone package).
-- **Re-publish `foundation`** (Phase B) so `install.sh` reaches the component repo. Gated.
+**Done (2026-07-19):**
+- **`install-all.sh` integration.** `foundation/install.sh` gained an `agents-md` mode (places the root `AGENTS.md` only, skipping the subtree add). `install-all.sh` installs every package and then calls `sh agent/rules/foundation/install.sh agents-md`, so the bootstrap logic lives in **one** place — no duplication, no drift.
+- **README documented.** `foundation/README.md` now leads with `sh install.sh`, explains that the root `AGENTS.md` is what activates the framework and why `git subtree` can't place it, and notes the manual-`subtree`-then-add-the-root-file path.
 
-**Gated on:** not blocking. `foundation` is already published, so shipping the bootstrap (whichever mechanism) is a `foundation` re-publish (Phase B) once the mechanism is decided — do that with explicit go-ahead.
+**Still open (remaining work):**
+- **Publish `foundation`** so `install.sh` reaches the component repo. Part of the first Waytide release — see [[2026-07-19T05-22-32Z-pending-release-republish-all-seven-packages]]. Gated.
+
+**Gated on:** the composite-side work is done; only the publish remains, folded into the first Waytide release (gated on go-ahead and the license).
 
 **Why:** without the bootstrap, the packages are inert in a new project — installing them changes nothing until the root file exists. This is the one piece the distribution currently omits, and it's the piece that makes everything else run.
 
