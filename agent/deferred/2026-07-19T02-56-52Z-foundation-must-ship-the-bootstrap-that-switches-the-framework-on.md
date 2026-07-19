@@ -6,7 +6,12 @@ So a fresh project that installs the packages **still won't load the rules** unt
 
 **Confirmed:** `constant`'s root `AGENTS.md` carries the line verbatim ("Read every file in `agent/rules/` at the start of a session and follow them"). Foundation's convention rules were *extracted from* that `AGENTS.md` prose, but the bootstrap pointer stayed at the root, because it has to.
 
-**Done (Phase A):** `foundation/install.sh` is written — it `subtree`-adds/refreshes foundation, then **creates-or-appends the root `AGENTS.md`** bootstrap (non-clobbering; idempotent via a `grep 'agent/rules/'` guard). The bootstrap text is a self-contained heredoc *in the script*, pointing at `agent/rules/`, stating the override precedence, and deferring the framework description to foundation's rules. The earlier `foundation/AGENTS.md.template` was **retired** — the script is the single source of the bootstrap text, so there is nothing for it to drift against.
+**Done (Phase A):** `foundation/install.sh` is written and tested — it `subtree`-adds/refreshes foundation, then places the root `AGENTS.md` bootstrap. Behavior:
+- **No `AGENTS.md`** → creates it (non-destructive, no prompt).
+- **Existing `AGENTS.md` without the bootstrap** → **prompts the user for permission before appending**, first **explaining the effect** (the agent will read every file in `agent/rules/` at session start and follow it; those rules override defaults where they conflict; explicit user instructions still win; existing content is kept, the section added at the end) and **showing the exact text** to be appended. Appends only on a `y`/`yes`; leaves the file unchanged otherwise. Refuses to modify when not running interactively (`[ -t 0 ]`), printing the section for a manual paste.
+- **Already bootstrapped** (`grep 'agent/rules/'`) → left unchanged (idempotent).
+
+The bootstrap text is a self-contained heredoc *in the script*, so the earlier `foundation/AGENTS.md.template` was **retired** — the script is the single source, nothing to drift against.
 
 **Settled:** a **single root `AGENTS.md`** covers everything — it is loaded both by the `agents.md` standard and by **Claude Code** (which loads `AGENTS.md` as well as `CLAUDE.md`). No separate `CLAUDE.md` variant, note, or symlink is needed.
 
