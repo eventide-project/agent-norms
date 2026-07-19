@@ -59,17 +59,11 @@ The four fast-forward re-publishes each passed a `merge-base --is-ancestor` guar
 
 Both were proved by a throwaway pull. The rules were drafted from `constant`'s worked examples of `agent/plans/`, `agent/design/`, and `agent/experiments/`. Experiments carry a full branch lifecycle: their own `experiment/<subject>` branch, a single-branch-to-a-verdict default (runs optional), the states **affirmed / refuted / inconclusive / abandoned / superseded** (plus **suspended**), a test-gated merge on affirmation that also copies the experiment's log into `agent/log/`, and user-confirmed branch deletion. The originating deferred item was resolved (deleted, with an `agent/log/` entry). One follow-up remains parked as its own deferred item: surveying `constant`'s `agent/sessions/` for a possible fourth convention — gated behind finishing agent-norms before returning to `constant`.
 
-**Rebrand to Waytide — 2026-07-19 (composite done, not yet published).** The project was renamed from "Agent Norms" to **Waytide** (domain `waytide.ai`, registered). The distribution moves to a new GitHub org: the composite becomes **`waytide/waytide`** and each component repo becomes **`waytide/<package>`** (dropping the `agent-norms-` prefix) in the **`waytide`** org, replacing `eventide-project/agent-norms-*`. The composite-side text rebrand is done; **the historical publish tables above (under `eventide-project/agent-norms-*`) are superseded** — the next release publishes fresh to the new org.
+**Rebrand to Waytide — 2026-07-19.** The project was renamed from "Agent Norms" to **Waytide** (domain `waytide.ai`, registered; owned by Eventide, attributed to Eventide). Distribution moved to the new **`waytide`** GitHub org: the composite is **`waytide/waytide`** and each package is **`waytide/<package>`** (no `agent-norms-` prefix). **The historical publish tables above (under `eventide-project/agent-norms-*`) are superseded** — those repos are left behind.
 
-**Pending release (not yet published) — 2026-07-19.** Everything below is unpublished, to ship together in the first Waytide release:
+**First Waytide release — PUBLISHED 2026-07-19.** All eight repos are live under `waytide/*` (composite `waytide/waytide` at `master`, plus the seven packages, each proved). It shipped everything accumulated since Agent Norms: the rebrand, the "puts" not "lands" phrasing, two new `language` rules (`communicate-plainly-name-the-thing`, `expand-abbreviations-on-first-use`), the `docs` → `plan` rename, and the framework bootstrap (`foundation/install.sh` + `install-all.sh` wiring).
 
-- the **rebrand** — publish all seven packages to the new `waytide/<package>` repos (fresh repos in the new org; the old `eventide-project` repos are left behind);
-- a phrasing sweep ("puts" not "lands" for placement) across **all seven** package READMEs plus rules in `foundation` and `language`;
-- two new `language` rules — `communicate-plainly-name-the-thing` and `expand-abbreviations-on-first-use`;
-- the **`docs` → `plan` package rename** (folder and references done in the composite);
-- pending for `foundation`: the bootstrap `install.sh` (its own deferred item).
-
-Tracked as a deferred item (`…-pending-release-republish-all-seven-packages.md`). Because the org and repo names change, the whole release is a fresh publish to `waytide/*` rather than fast-forward re-publishes — the runbook's per-package fast-forward/rename cases from the prior (Agent Norms) release no longer apply as-is. The GitHub org and repos are Scott's to create.
+**Published while unlicensed** (at Scott's direction — the build-in-the-open path). The repos are public but carry a "not yet licensed for use; all rights reserved; Eventide Common Interest License forthcoming" note. **Still open:** write the ECIL and re-publish with a `LICENSE` in each package (see the license deferred item). Until then the packages are all-rights-reserved — visible, not yet usable.
 
 ## What this session did (2026-07-17)
 
