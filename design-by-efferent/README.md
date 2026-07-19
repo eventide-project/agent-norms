@@ -1,4 +1,4 @@
-# Agent Norms — design-by-efferent
+# Waytide — design-by-efferent
 
 **Design By Efferent** (DBE). Human-in-the-loop, efferent-first design method. An updated TDD variant with accommodations for AI: tests are the vehicle and design is the point — the **actuation**, the first efferent reference to a unit, is written before any implementation, forcing the interface outside-in.
 
@@ -45,8 +45,8 @@ design-by-efferent  →  foundation, language, testing
 Install with `git subtree` — it puts the files in your project's `agent/rules/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add  --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
-git subtree pull --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
+git subtree add  --prefix agent/rules/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
+git subtree pull --prefix agent/rules/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
 ```
 
 It includes `foundation`, `language`, and `testing` — install those too, or run `sh agent/rules/design-by-efferent/install-dependencies.sh` from your project root.
@@ -54,5 +54,5 @@ It includes `foundation`, `language`, and `testing` — install those too, or ru
 **Refresh from upstream** periodically to pull the latest rules:
 
 ```
-git subtree pull --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
+git subtree pull --prefix agent/rules/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
 ```

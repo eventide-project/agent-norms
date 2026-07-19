@@ -1,4 +1,4 @@
-# Contributing to Agent Norms
+# Contributing to Waytide
 
 How the packages are authored and published. If you only want to *use* a package in your project, see the README.
 
@@ -10,9 +10,9 @@ the packages live together, a change spanning several packages is one atomic
 commit, and the whole rule set can be read, grepped, and consolidated in one
 place. This is the source of truth.
 
-**Each package also has its own repository** — `agent-norms-foundation`,
-`agent-norms-testing`, `agent-norms-git`, and so on (the `code/` namespace
-flattens to `code-` in the repo name). Each holds a single package's files at its
+**Each package also has its own repository** in the `waytide` org — `foundation`,
+`testing`, `git`, and so on (the `code/` namespace flattens to `code-` in the repo
+name, e.g. `waytide/code-ruby`). Each holds a single package's files at its
 root. These are how a consuming project installs a package.
 
 The component repositories are **generated from this composite repo, not edited
@@ -44,14 +44,14 @@ rename), the deterministic split fast-forwards — guard for it before pushing:
 git subtree split --prefix=testing -b publish-tmp
 # confirm fast-forward, then push:
 git merge-base --is-ancestor \
-  "$(git ls-remote https://github.com/eventide-project/agent-norms-testing.git master | cut -f1)" \
+  "$(git ls-remote https://github.com/waytide/testing.git master | cut -f1)" \
   publish-tmp && \
-git push https://github.com/eventide-project/agent-norms-testing.git publish-tmp:master
+git push https://github.com/waytide/testing.git publish-tmp:master
 git branch -D publish-tmp
 ```
 
 `code/ruby` splits from the nested path (`--prefix=code/ruby`) into
-`agent-norms-code-ruby`. If a push is **rejected**, stop — do not force; it means
+`waytide/code-ruby`. If a push is **rejected**, stop — do not force; it means
 the component repo diverged (a direct commit, which the downstream-only rule
 forbids). The full step-by-step for every package — including the one-time repo
 create/rename cases — is the **Phase B checklist**
@@ -72,7 +72,7 @@ to lose it. Two ways to capture it, preferred first:
    `agent/rules/testing/`, then:
 
    ```
-   git subtree push --prefix agent/rules/testing https://github.com/eventide-project/agent-norms-testing.git master
+   git subtree push --prefix agent/rules/testing https://github.com/waytide/testing.git master
    ```
 
    This puts your commits on the component repo. It is a **fallback**: `subtree

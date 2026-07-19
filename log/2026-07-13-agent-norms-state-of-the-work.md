@@ -1,4 +1,4 @@
-# Agent Norms — State of the Work
+# Waytide — State of the Work
 
 A summary of where this work currently stands. Read this first, then the two companion docs in this folder:
 
@@ -18,8 +18,8 @@ Turn `constant`'s `agent/rules/` directives into reusable, general-purpose packa
 ## Settled decisions
 
 - **Package = unit of reuse.** Projects depend on whole packages; consolidate *within* a package.
-- **Composite repo authoring + split distribution.** This "Agent Norms" folder is the canonical composite repo (packages as root-level dirs, own full history). Each `agent-norms-<package>` component repo is a regenerated one-package view via `git subtree split --prefix=<package>`, pushed to its own repo in `eventide-project`. Sync is one-directional (composite → component).
-- **Repo prefix:** `agent-norms-` (e.g. `agent-norms-testing`). `code/` flattens to `code-` in repo names; the subtree prefix keeps the real path `agent/rules/code/ruby`. `code/` groups by *programming* language and is not a package.
+- **Composite repo authoring + split distribution.** This "Waytide" folder is the canonical composite repo (`waytide/waytide`; packages as root-level dirs, own full history). Each `waytide/<package>` component repo is a regenerated one-package view via `git subtree split --prefix=<package>`, pushed to its own repo in the `waytide` org. Sync is one-directional (composite → component).
+- **Repo naming:** the `waytide` org, one repo per package named for the package (e.g. `waytide/testing`); the composite is `waytide/waytide`. `code/` flattens to `code-` in repo names (`waytide/code-ruby`); the subtree prefix keeps the real path `agent/rules/code/ruby`. `code/` groups by *programming* language and is not a package. (Renamed 2026-07-19 from "Agent Norms" / the `eventide-project` org / the `agent-norms-` repo prefix.)
 - **Package types:** `foundation`, `language`, `design-by-efferent` (DBE), `testing`, `code/ruby`, `git`, `plan` (renamed from `docs` 2026-07-19; plus `eventide`, reserved). `code/` and `local/` are grouping namespaces, not packages.
 - **Dependencies:** everything → `foundation`; `testing` & `code/ruby` → `language`; `design-by-efferent` → `foundation`, `language`, `testing`. `git`, `plan` standalone.
 - **`local/` mirror** holds `constant`-specific rules, never subtree'd, mirrors package categories (`local/code/ruby`, `local/language`, `local/testing`). Stays in `constant` only.
@@ -59,14 +59,17 @@ The four fast-forward re-publishes each passed a `merge-base --is-ancestor` guar
 
 Both were proved by a throwaway pull. The rules were drafted from `constant`'s worked examples of `agent/plans/`, `agent/design/`, and `agent/experiments/`. Experiments carry a full branch lifecycle: their own `experiment/<subject>` branch, a single-branch-to-a-verdict default (runs optional), the states **affirmed / refuted / inconclusive / abandoned / superseded** (plus **suspended**), a test-gated merge on affirmation that also copies the experiment's log into `agent/log/`, and user-confirmed branch deletion. The originating deferred item was resolved (deleted, with an `agent/log/` entry). One follow-up remains parked as its own deferred item: surveying `constant`'s `agent/sessions/` for a possible fourth convention — gated behind finishing agent-norms before returning to `constant`.
 
-**Pending release (not yet published) — 2026-07-19.** After the above, several changes were made and left unpublished at Scott's direction, to batch at the next release — so **every package now carries unpublished changes**:
+**Rebrand to Waytide — 2026-07-19 (composite done, not yet published).** The project was renamed from "Agent Norms" to **Waytide** (domain `waytide.ai`, registered). The distribution moves to a new GitHub org: the composite becomes **`waytide/waytide`** and each component repo becomes **`waytide/<package>`** (dropping the `agent-norms-` prefix) in the **`waytide`** org, replacing `eventide-project/agent-norms-*`. The composite-side text rebrand is done; **the historical publish tables above (under `eventide-project/agent-norms-*`) are superseded** — the next release publishes fresh to the new org.
 
+**Pending release (not yet published) — 2026-07-19.** Everything below is unpublished, to ship together in the first Waytide release:
+
+- the **rebrand** — publish all seven packages to the new `waytide/<package>` repos (fresh repos in the new org; the old `eventide-project` repos are left behind);
 - a phrasing sweep ("puts" not "lands" for placement) across **all seven** package READMEs plus rules in `foundation` and `language`;
 - two new `language` rules — `communicate-plainly-name-the-thing` and `expand-abbreviations-on-first-use`;
-- the **`docs` → `plan` package rename** — done in the composite; at release the component repo needs renaming (`agent-norms-docs` → `agent-norms-plan`) and a history reset, the same as the earlier `vocabulary` → `language` rename;
+- the **`docs` → `plan` package rename** (folder and references done in the composite);
 - pending for `foundation`: the bootstrap `install.sh` (its own deferred item).
 
-Tracked as a deferred item (`…-pending-release-republish-all-seven-packages.md`): six packages are fast-forward re-publishes, `plan` is the rename + reset. Batch it all when releasing.
+Tracked as a deferred item (`…-pending-release-republish-all-seven-packages.md`). Because the org and repo names change, the whole release is a fresh publish to `waytide/*` rather than fast-forward re-publishes — the runbook's per-package fast-forward/rename cases from the prior (Agent Norms) release no longer apply as-is. The GitHub org and repos are Scott's to create.
 
 ## What this session did (2026-07-17)
 

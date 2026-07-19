@@ -1,4 +1,4 @@
-# Agent Norms — Classification Table
+# Waytide — Classification Table
 
 Companion to the packaging design. Every current rule in `constant`'s `agent/rules/` (plus the `AGENTS.md` framework prose) pinned to a package, with consolidations and `local/` flagged in the Notes. Ordered by current folder so nothing is missed; a per-package tally follows.
 

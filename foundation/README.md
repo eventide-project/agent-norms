@@ -1,6 +1,6 @@
-# Agent Norms — foundation
+# Waytide — foundation
 
-The `agent/` [artifact framework](https://github.com/eventide-project/agent-norms) that every other package builds on.
+The `agent/` [artifact framework](https://github.com/waytide/waytide) that every other package builds on.
 
 All agent artifacts for a project live under a single top-level `agent/` folder, so
 they are committed to git alongside the code and read at the start of each session
@@ -48,8 +48,8 @@ foundation  →  (nothing — the base every other package builds on)
 Install with `git subtree` — it puts the files in your project's `agent/rules/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add  --prefix agent/rules/foundation https://github.com/eventide-project/agent-norms-foundation.git master --squash
-git subtree pull --prefix agent/rules/foundation https://github.com/eventide-project/agent-norms-foundation.git master --squash
+git subtree add  --prefix agent/rules/foundation https://github.com/waytide/foundation.git master --squash
+git subtree pull --prefix agent/rules/foundation https://github.com/waytide/foundation.git master --squash
 ```
 
 This package has no dependencies.
@@ -57,5 +57,5 @@ This package has no dependencies.
 **Refresh from upstream** periodically to pull the latest rules:
 
 ```
-git subtree pull --prefix agent/rules/foundation https://github.com/eventide-project/agent-norms-foundation.git master --squash
+git subtree pull --prefix agent/rules/foundation https://github.com/waytide/foundation.git master --squash
 ```

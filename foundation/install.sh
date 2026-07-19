@@ -6,12 +6,12 @@
 set -e
 
 prefix="agent/rules/foundation"
-repo="https://github.com/eventide-project/agent-norms-foundation.git"
+repo="https://github.com/waytide/foundation.git"
 
 # The bootstrap section written into the project-root AGENTS.md.
 bootstrap() {
   cat <<'EOF'
-## Agent Norms
+## Waytide
 
 This project's working conventions live under `agent/`, committed alongside the
 code and read at the start of each session.
@@ -35,13 +35,13 @@ if [ -f AGENTS.md ] && grep -q 'agent/rules/' AGENTS.md; then
 elif [ ! -f AGENTS.md ]; then
   # No root AGENTS.md yet — creating one takes nothing away, so do it directly.
   bootstrap > AGENTS.md
-  echo "Created AGENTS.md with the Agent Norms bootstrap."
+  echo "Created AGENTS.md with the Waytide bootstrap."
 else
   # An AGENTS.md you maintain already exists. Explain the effect, show the exact
   # text, and ask before touching it — never append silently.
   echo "You already have an AGENTS.md at the project root."
   echo
-  echo "Appending the Agent Norms bootstrap will add a section that tells the agent,"
+  echo "Appending the Waytide bootstrap will add a section that tells the agent,"
   echo "at the start of every session, to read every file in agent/rules/ and follow"
   echo "it. Those rules then OVERRIDE the agent's default behavior where they conflict"
   echo "(your explicit instructions still win). Your existing AGENTS.md content is left"
@@ -63,7 +63,7 @@ else
     [Yy] | [Yy][Ee][Ss])
       printf '\n' >> AGENTS.md
       bootstrap >> AGENTS.md
-      echo "Appended the Agent Norms bootstrap to AGENTS.md."
+      echo "Appended the Waytide bootstrap to AGENTS.md."
       ;;
     *)
       echo "Left AGENTS.md unchanged. Paste the section above into it to activate the framework."

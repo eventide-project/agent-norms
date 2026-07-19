@@ -1,27 +1,25 @@
-# Pending release — re-publish all seven packages (puts-not-lands changes)
+# First Waytide release — publish all packages to the new `waytide` org
 
-All seven packages carry **unpublished changes** and need a Phase B re-publish at the next release. Left unpublished deliberately (2026-07-19, at Scott's direction) — batch it later rather than push now.
+The project was renamed from "Agent Norms" to **Waytide**, and distribution moves to a new GitHub org. Nothing is published under the new names yet. This is the first Waytide release: publish the composite to **`waytide/waytide`** and each package to **`waytide/<package>`** in the **`waytide`** org. The old `eventide-project/agent-norms-*` repos are left behind (no real consumers — every prior publish was proved only with a throwaway pull).
 
-**What's pending (commit `a00f76c`, "Say 'puts' not 'lands' for placement throughout"):**
-- **Every package README** — the install line changed to "`git subtree` — it puts the files in your project's `agent/rules/` tree…" (all seven: foundation, language, plan, git, testing, code/ruby, design-by-efferent).
-- **`foundation` rules** — `agent-deferred-convention` ("is put into code or rules"), `rules-install-a-mindset` and `experiment-runs-on-its-own-branch` ("goes into" / "is just the log copy").
-- **`language` rule** — `no-slang` ("goes into the codebase").
+Because the org and every repo name change, this is a **fresh first publish** of each repo, not a fast-forward re-publish or a rename. The per-package fast-forward / rename / force cases from the prior (Agent Norms) release no longer apply.
 
-**Also pending in `language` (two new rules):** `communicate-plainly-name-the-thing` (speak and write plainly, name the actual thing, no invented labels or unexplained jargon) and `expand-abbreviations-on-first-use` (spell out an abbreviation the first time; no unexplained shorthand). Both are principle rules beneath the `language-is-precise-here` premise; the language README's discipline list gains them (now four disciplines).
+**What ships** (a fresh publish carries the whole current composite state, so everything accumulated since the last Agent Norms release goes out together):
+- **All seven packages**, published to `waytide/foundation`, `waytide/language`, `waytide/testing`, `waytide/code-ruby`, `waytide/git`, `waytide/plan`, `waytide/design-by-efferent`.
+- The composite pushed to `waytide/waytide`.
+- Carried along: the "puts" not "lands" phrasing sweep; the two new `language` rules (`communicate-plainly-name-the-thing`, `expand-abbreviations-on-first-use`); the `docs` → `plan` package rename; and — if decided by then — the `foundation` bootstrap `install.sh` (see [[2026-07-19T02-56-52Z-foundation-must-ship-the-bootstrap-that-switches-the-framework-on]]).
 
-**Package renamed: `docs` → `plan`.** The `docs` package was renamed `plan` in the composite (folder, references, README all conformed). At release time the component repo must be renamed and its history reset — the same procedure as the earlier `vocabulary` → `language` rename:
-- `gh repo rename agent-norms-plan -R eventide-project/agent-norms-docs` (GitHub-side only)
-- `git subtree split --prefix=plan -b publish-tmp` then `git push --force …/agent-norms-plan.git publish-tmp:master`
-- The force is expected: the composite path changed (`docs/` → `plan/`), so the split is a new history, not a fast-forward. Safe because there are no real consumers yet (proved only with throwaway pulls).
+**Procedure:**
+1. **Scott creates** the `waytide` org and the repos: `waytide/waytide` plus one per package (`waytide/foundation`, …, `waytide/code-ruby`, `waytide/plan`, `waytide/design-by-efferent`). Public, empty (no README/license) so the first push lands cleanly on `master`. Org/repo creation is Scott's to do.
+2. **Push the composite** to `waytide/waytide` (`master`).
+3. **For each package:** `git subtree split --prefix=<package> -b publish-tmp`, then `git push https://github.com/waytide/<package>.git publish-tmp:master`, then delete the temp branch. `code/ruby` splits from `--prefix=code/ruby` into `waytide/code-ruby`.
+4. **Prove each pull** into a throwaway project (`git subtree add`); check the files, structural files, and `log/` presence match expectations.
+5. Log a composite `agent/log/` entry, and update the state-of-the-work note (all seven live under `waytide/*`).
 
-So the component repos are behind the composite — `foundation` for the phrasing changes (and later the bootstrap `install.sh`), `language` for the phrasing change plus the two new rules, and `plan` for the rename plus the phrasing change.
+The runbook (`log/2026-07-17-agent-norms-phase-b-runbook.md`) still holds the split-and-push primitive and the proof step; only the org and repo names differ (`waytide/<package>`, no `agent-norms-` prefix).
 
-**How to re-publish:** the path in `log/2026-07-17-agent-norms-phase-b-runbook.md`. Six of the seven are plain **fast-forward** re-publishes (unchanged prefix); **`plan` is the exception** — rename + force-reset, per the block above. Prove each pull. (Note: `foundation` and the former `docs` were last published earlier this session with the new planning/design/experiments conventions; this release carries the phrasing changes on top, plus the `plan` rename.)
+**Gated on:** explicit go-ahead — every push writes to public repos, and the org/repos are Scott's to create first.
 
-**Batch with, if decided by then:** the `foundation` bootstrap `install.sh` (see [[2026-07-19T02-56-52Z-foundation-must-ship-the-bootstrap-that-switches-the-framework-on]]) — it also re-publishes `foundation`, so shipping both at once saves a round.
+**Why:** the composite is the source of truth and fully rebranded; the packages just need their first publish under the Waytide name. Recorded so the release survives beyond this session.
 
-**Gated on:** explicit go-ahead (every push writes to public component repos). Not blocking — purely a distribution step.
-
-**Why:** the composite is the source of truth and already conformed; the component repos just need the next deterministic re-publish to catch up. Recorded so the pending release survives beyond the session in which the changes were made.
-
-**How to apply:** when releasing, follow the Phase B runbook — fast-forward re-publish for six packages, and the rename + force-reset for `plan` (was `docs`). Prove each pull, log a composite `agent/log/` entry, and update the state-of-the-work note. Delete this item once done.
+**How to apply:** once the org and repos exist, run the procedure above, prove each pull, log it, update the state-of-the-work note, and delete this item.

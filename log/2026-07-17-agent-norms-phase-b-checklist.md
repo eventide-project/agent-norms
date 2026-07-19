@@ -1,8 +1,10 @@
-# Agent Norms — Phase B Checklist (exact commands, in order)
+# Waytide — Phase B Checklist (exact commands, in order)
+
+> **⚠️ Rebranded to Waytide (2026-07-19).** The commands below use the **old** `eventide-project` org and `agent-norms-*` repo names — they record the 2026-07-17 release. The project now uses the **`waytide`** org with unprefixed names (`waytide/waytide` composite, `waytide/<package>` per package). **Do not run these against `eventide-project`.** The current release plan is `agent/deferred/2026-07-19T05-22-32Z-pending-release-republish-all-seven-packages.md`.
 
 Literal command sequence for the runbook (`2026-07-17-agent-norms-phase-b-runbook.md`). Run top to bottom. Every `gh repo` and `git push` writes to public infrastructure — **run only on go-ahead.** Each command block is one step; the comment after a command says what to expect.
 
-> **Status: executed 2026-07-17.** This ran once end to end — all seven repos are published and on `master`. Steps 2 (rename) and 6 (create) were one-time; a future re-publish of a single package is just its split-and-push-to-`master` block plus the prove-the-pull.
+> **Status: executed 2026-07-17 under the old names.** This ran once end to end — all seven repos were published to `eventide-project/agent-norms-*` and are on `master`. That was the last Agent Norms release; the next one is the first Waytide release (fresh repos under `waytide/*`).
 
 ## 0 — Preflight
 
@@ -14,7 +16,7 @@ git status                         # expect: nothing to commit, working tree cle
 ```
 - [ ] Confirm credentialed access with raw git (credentials come from the macOS keychain helper — no `gh` needed):
 ```
-git ls-remote https://github.com/eventide-project/agent-norms-foundation.git HEAD
+git ls-remote https://github.com/waytide/foundation.git HEAD
 ```
 Expect a commit hash followed by `HEAD`, exit 0. If it prompts for a username/password or errors, fix the stored credential before continuing.
 
@@ -27,7 +29,7 @@ Expect a commit hash followed by `HEAD`, exit 0. If it prompts for a username/pa
 - [ ] Split and push:
 ```
 git subtree split --prefix=foundation -b split-foundation
-git push https://github.com/eventide-project/agent-norms-foundation.git split-foundation:master
+git push https://github.com/waytide/foundation.git split-foundation:master
 git branch -D split-foundation
 ```
 - [ ] Prove the pull:
@@ -35,7 +37,7 @@ git branch -D split-foundation
 rm -rf /tmp/prove-foundation
 git init /tmp/prove-foundation
 git -C /tmp/prove-foundation commit --allow-empty -m init
-git -C /tmp/prove-foundation subtree add --prefix agent/rules/foundation https://github.com/eventide-project/agent-norms-foundation.git master --squash
+git -C /tmp/prove-foundation subtree add --prefix agent/rules/foundation https://github.com/waytide/foundation.git master --squash
 ls /tmp/prove-foundation/agent/rules/foundation      # expect rules + README.md, no log/
 rm -rf /tmp/prove-foundation
 ```
@@ -46,13 +48,13 @@ rm -rf /tmp/prove-foundation
 
 - [ ] Rename the GitHub repo (GitHub-side only — does not touch this repo's git config):
 ```
-gh repo rename agent-norms-language -R eventide-project/agent-norms-vocabulary
+gh repo rename agent-norms-language -R waytide/vocabulary
 ```
-Web-UI alternative: `github.com/eventide-project/agent-norms-vocabulary` → Settings → rename to `agent-norms-language`. GitHub keeps a redirect from the old name either way.
+Web-UI alternative: `github.com/waytide/vocabulary` → Settings → rename to `agent-norms-language`. GitHub keeps a redirect from the old name either way.
 - [ ] Split and force-push (history reset is expected):
 ```
 git subtree split --prefix=language -b split-language
-git push --force https://github.com/eventide-project/agent-norms-language.git split-language:master
+git push --force https://github.com/waytide/language.git split-language:master
 git branch -D split-language
 ```
 - [ ] Prove the pull:
@@ -60,7 +62,7 @@ git branch -D split-language
 rm -rf /tmp/prove-language
 git init /tmp/prove-language
 git -C /tmp/prove-language commit --allow-empty -m init
-git -C /tmp/prove-language subtree add --prefix agent/rules/language https://github.com/eventide-project/agent-norms-language.git master --squash
+git -C /tmp/prove-language subtree add --prefix agent/rules/language https://github.com/waytide/language.git master --squash
 ls /tmp/prove-language/agent/rules/language          # expect 14 rules + README.md + log/
 rm -rf /tmp/prove-language
 ```
@@ -70,7 +72,7 @@ rm -rf /tmp/prove-language
 - [ ] Split and push:
 ```
 git subtree split --prefix=testing -b split-testing
-git push https://github.com/eventide-project/agent-norms-testing.git split-testing:master
+git push https://github.com/waytide/testing.git split-testing:master
 git branch -D split-testing
 ```
 - [ ] Prove the pull:
@@ -78,7 +80,7 @@ git branch -D split-testing
 rm -rf /tmp/prove-testing
 git init /tmp/prove-testing
 git -C /tmp/prove-testing commit --allow-empty -m init
-git -C /tmp/prove-testing subtree add --prefix agent/rules/testing https://github.com/eventide-project/agent-norms-testing.git master --squash
+git -C /tmp/prove-testing subtree add --prefix agent/rules/testing https://github.com/waytide/testing.git master --squash
 ls /tmp/prove-testing/agent/rules/testing            # expect rules + README.md + log/
 rm -rf /tmp/prove-testing
 ```
@@ -90,7 +92,7 @@ Split prefix is the nested path `code/ruby`; the repo is `agent-norms-code-ruby`
 - [ ] Split and push:
 ```
 git subtree split --prefix=code/ruby -b split-code-ruby
-git push https://github.com/eventide-project/agent-norms-code-ruby.git split-code-ruby:master
+git push https://github.com/waytide/code-ruby.git split-code-ruby:master
 git branch -D split-code-ruby
 ```
 - [ ] Prove the pull:
@@ -98,7 +100,7 @@ git branch -D split-code-ruby
 rm -rf /tmp/prove-code-ruby
 git init /tmp/prove-code-ruby
 git -C /tmp/prove-code-ruby commit --allow-empty -m init
-git -C /tmp/prove-code-ruby subtree add --prefix agent/rules/code/ruby https://github.com/eventide-project/agent-norms-code-ruby.git master --squash
+git -C /tmp/prove-code-ruby subtree add --prefix agent/rules/code/ruby https://github.com/waytide/code-ruby.git master --squash
 ls /tmp/prove-code-ruby/agent/rules/code/ruby        # expect rules + README.md, no log/
 rm -rf /tmp/prove-code-ruby
 ```
@@ -108,7 +110,7 @@ rm -rf /tmp/prove-code-ruby
 - [ ] Split and push:
 ```
 git subtree split --prefix=git -b split-git
-git push https://github.com/eventide-project/agent-norms-git.git split-git:master
+git push https://github.com/waytide/git.git split-git:master
 git branch -D split-git
 ```
 - [ ] Prove the pull:
@@ -116,7 +118,7 @@ git branch -D split-git
 rm -rf /tmp/prove-git
 git init /tmp/prove-git
 git -C /tmp/prove-git commit --allow-empty -m init
-git -C /tmp/prove-git subtree add --prefix agent/rules/git https://github.com/eventide-project/agent-norms-git.git master --squash
+git -C /tmp/prove-git subtree add --prefix agent/rules/git https://github.com/waytide/git.git master --squash
 ls /tmp/prove-git/agent/rules/git                    # expect rules + README.md, no log/
 rm -rf /tmp/prove-git
 ```
@@ -125,13 +127,13 @@ rm -rf /tmp/prove-git
 
 - [ ] Create the repo (GitHub-side only — does not touch this repo's git config):
 ```
-gh repo create eventide-project/agent-norms-design-by-efferent --public -d "Agent Norms — Design By Efferent: the human-in-the-loop, efferent-first design method"
+gh repo create waytide/design-by-efferent --public -d "Waytide — Design By Efferent: the human-in-the-loop, efferent-first design method"
 ```
 Web-UI alternative: New repository → owner `eventide-project`, name `agent-norms-design-by-efferent`, Public, **no** README / .gitignore / license (it must be empty so the split pushes cleanly to `master`).
 - [ ] Split and push:
 ```
 git subtree split --prefix=design-by-efferent -b split-dbe
-git push https://github.com/eventide-project/agent-norms-design-by-efferent.git split-dbe:master
+git push https://github.com/waytide/design-by-efferent.git split-dbe:master
 git branch -D split-dbe
 ```
 - [ ] Prove the pull:
@@ -139,7 +141,7 @@ git branch -D split-dbe
 rm -rf /tmp/prove-dbe
 git init /tmp/prove-dbe
 git -C /tmp/prove-dbe commit --allow-empty -m init
-git -C /tmp/prove-dbe subtree add --prefix agent/rules/design-by-efferent https://github.com/eventide-project/agent-norms-design-by-efferent.git master --squash
+git -C /tmp/prove-dbe subtree add --prefix agent/rules/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
 ls /tmp/prove-dbe/agent/rules/design-by-efferent     # expect rules + vocabulary.md + README.md + log/
 rm -rf /tmp/prove-dbe
 ```

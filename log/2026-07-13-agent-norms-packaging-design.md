@@ -1,4 +1,4 @@
-# Agent Norms — Packaging Design
+# Waytide — Packaging Design
 
 **Status:** Built and published (2026-07-17). All seven packages are live as component repos on `master`; this doc is the design of record. Examples in `testing`/`code/ruby` use the neutral `Upload` domain.
 
@@ -14,7 +14,7 @@ Turn the agent directives currently living in the `constant` project into genera
 
 **Distribution: one canonical git repo, pulled into each project with `git subtree`.** The whole system depends on rules being real files under `agent/rules/` that are read at session start and committed alongside code. `git subtree` preserves exactly that — the files physically live in each consuming project — while `git subtree pull` / `git subtree push` syncs them to this canonical repo. A refinement made mid-project is promoted back with a push, so it reaches every project. Submodules leave a pointer instead of files (breaking "read every file at session start"); symlinks do not survive a clone; a plain copy loses the push-back. Subtree is the only option that keeps files-in-repo *and* bidirectional live.
 
-This "Agent Norms" folder is the canonical repo.
+This "Waytide" folder is the canonical repo.
 
 ## Package types
 
@@ -74,19 +74,19 @@ The five commands are **not** local. They generalize — their axes are general 
 
 ## Consuming-project workflow (git subtree)
 
-**Repos.** Each package is its own git repo on a shared account, named with the `agent-norms-` prefix: `agent-norms-foundation`, `agent-norms-language`, `agent-norms-design-by-efferent`, `agent-norms-testing`, `agent-norms-code-ruby` (future `agent-norms-code-sh`, `agent-norms-code-sql`), `agent-norms-git`, `agent-norms-plan`, and `agent-norms-eventide` (reserved). The `code/` namespace flattens to `code-` in the repo name, while the subtree *prefix* keeps the real path (`agent/rules/code/ruby`). `local/` packages get no repo — they never leave their project.
+**Repos.** Each package is its own git repo in the `waytide` org, named for the package: `waytide/foundation`, `waytide/language`, `waytide/design-by-efferent`, `waytide/testing`, `waytide/code-ruby` (future `waytide/code-sh`, `waytide/code-sql`), `waytide/git`, `waytide/plan`, and `waytide/eventide` (reserved). The `code/` namespace flattens to `code-` in the repo name, while the subtree *prefix* keeps the real path (`agent/rules/code/ruby`). `local/` packages get no repo — they never leave their project.
 
-A project pulls the packages it needs into its own `agent/rules/` tree. Sketch of the operations (for `agent-norms-testing`):
+A project pulls the packages it needs into its own `agent/rules/` tree. Sketch of the operations (for `waytide/testing`):
 
-- **Add a package:** `git subtree add --prefix agent/rules/testing agent-norms-testing master --squash`
-- **Update from canonical:** `git subtree pull --prefix agent/rules/testing agent-norms-testing master --squash`
-- **Promote a local refinement back:** `git subtree push --prefix agent/rules/testing agent-norms-testing master`
+- **Add a package:** `git subtree add --prefix agent/rules/testing https://github.com/waytide/testing.git master --squash`
+- **Update from canonical:** `git subtree pull --prefix agent/rules/testing https://github.com/waytide/testing.git master --squash`
+- **Promote a local refinement back:** `git subtree push --prefix agent/rules/testing https://github.com/waytide/testing.git master`
 
 Because the files are physically present and committed in the project, the session-start "read every file in `agent/rules/`" behavior works unchanged. A package that has dependencies carries an `install-dependencies.sh` that `subtree`-adds (and refreshes) each included package (e.g. `design-by-efferent` needs `foundation`, `language`, `testing`), so one run installs the full set; the composite carries `install-all.sh`. (See the settled decision below — the earlier one-line `include:` manifest was dropped once the install scripts made it redundant.)
 
 ## Settled decisions (design questions resolved)
 
-- **Composite repo authoring, split distribution.** The canonical "Agent Norms" repo is the single source of truth, holding every package as a top-level directory with its own full history. Each `agent-norms-*` component repo is a *regenerated one-package view*, produced by `git subtree split --prefix=<package>` and pushed to its own repo in the org. Sync is one-directional (composite repo → component repo), deterministic and incremental. You commit in the composite repo; a release is "re-split the changed packages and push." Chosen over authoring each component repo separately because the packages are tightly interrelated and the migration is heavily cross-package, so atomic cross-package commits and one place to read/grep/consolidate are worth the split step.
+- **Composite repo authoring, split distribution.** The canonical `waytide/waytide` repo is the single source of truth, holding every package as a top-level directory with its own full history. Each `waytide/<package>` component repo is a *regenerated one-package view*, produced by `git subtree split --prefix=<package>` and pushed to its own repo in the org. Sync is one-directional (composite repo → component repo), deterministic and incremental. You commit in the composite repo; a release is "re-split the changed packages and push." Chosen over authoring each component repo separately because the packages are tightly interrelated and the migration is heavily cross-package, so atomic cross-package commits and one place to read/grep/consolidate are worth the split step.
 - **Substitutions are one rule per file (no `substitutes.md` table).** A package with a cohesive glossary of terms-with-meanings (the DBE lexicon) may carry a `vocabulary.md`; say-X-not-Y substitutions do not tabulate — each is its own rule.
 - **Dependencies are installed by a script, not declared in a manifest.** `git subtree` is manual — there's no dependency resolver to feed — so a package that has dependencies carries an `install-dependencies.sh` at its root that `subtree`-adds (and refreshes) each included package into the consuming project; a standalone package carries none. The full graph also lives in this doc, and the composite carries an `install-all.sh`. (Earlier a one-line `include:` in a `package.md` file declared the set; that manifest was dropped once the install scripts made it redundant — 2026-07-18.)
 - **`auto-record-design-dialogue` and `loop-records` are both `design-by-efferent`,** which also contributes the `loops/` artifact directory (foundation keeps only `rules/observations/deferred/log`).
@@ -95,4 +95,4 @@ Because the files are physically present and committed in the project, the sessi
 
 ## Status — done
 
-All four original steps are complete: the classification table was built, the composite repo laid out, every package migrated/consolidated with per-consolidation decision-log entries, and the subtree workflow proved by pulling each package. All seven packages are published to their `agent-norms-*` component repos (`master`), and the composite repo is backed up at `eventide-project/agent-norms`. The formerly on-hold supertype-as-factory-of-subtypes sub-point of `code/ruby`'s build-constructor rule is done (2026-07-17), illustrated with the `Upload::Result` family (`Success` / `Rejected`); no work remains.
+All four original steps are complete: the classification table was built, the composite repo laid out, every package migrated/consolidated with per-consolidation decision-log entries, and the subtree workflow proved by pulling each package. All seven packages are published to their `agent-norms-*` component repos (`master`), and the composite repo is backed up at `waytide/waytide`. The formerly on-hold supertype-as-factory-of-subtypes sub-point of `code/ruby`'s build-constructor rule is done (2026-07-17), illustrated with the `Upload::Result` family (`Success` / `Rejected`); no work remains.

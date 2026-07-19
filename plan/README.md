@@ -1,4 +1,4 @@
-# Agent Norms — plan
+# Waytide — plan
 
 How a project's **plans and design documents** are written. The package covers both written artifacts that describe a piece of work — the implementation plan (how it gets built) and the design (what it should be) — so despite the name "plan", it governs design documents too.
 
@@ -26,8 +26,8 @@ plan  →  (nothing — standalone)
 Install with `git subtree` — it puts the files in your project's `agent/rules/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add  --prefix agent/rules/plan https://github.com/eventide-project/agent-norms-plan.git master --squash
-git subtree pull --prefix agent/rules/plan https://github.com/eventide-project/agent-norms-plan.git master --squash
+git subtree add  --prefix agent/rules/plan https://github.com/waytide/plan.git master --squash
+git subtree pull --prefix agent/rules/plan https://github.com/waytide/plan.git master --squash
 ```
 
 It has no dependencies.
@@ -35,5 +35,5 @@ It has no dependencies.
 **Refresh from upstream** periodically to pull the latest rules:
 
 ```
-git subtree pull --prefix agent/rules/plan https://github.com/eventide-project/agent-norms-plan.git master --squash
+git subtree pull --prefix agent/rules/plan https://github.com/waytide/plan.git master --squash
 ```

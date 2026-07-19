@@ -1,4 +1,4 @@
-# Agent Norms — language
+# Waytide — language
 
 How language is used: precisely. A word is not a label applied to a thought after the fact — it is the thought's working surface, so choosing a word chooses a concept. The words are load-bearing, and they are chosen deliberately.
 
@@ -47,8 +47,8 @@ language  →  foundation
 Install with `git subtree` — it puts the files in your project's `agent/rules/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add  --prefix agent/rules/language https://github.com/eventide-project/agent-norms-language.git master --squash
-git subtree pull --prefix agent/rules/language https://github.com/eventide-project/agent-norms-language.git master --squash
+git subtree add  --prefix agent/rules/language https://github.com/waytide/language.git master --squash
+git subtree pull --prefix agent/rules/language https://github.com/waytide/language.git master --squash
 ```
 
 It includes `foundation` — install that too, or run `sh agent/rules/language/install-dependencies.sh` from your project root.
@@ -56,5 +56,5 @@ It includes `foundation` — install that too, or run `sh agent/rules/language/i
 **Refresh from upstream** periodically to pull the latest rules:
 
 ```
-git subtree pull --prefix agent/rules/language https://github.com/eventide-project/agent-norms-language.git master --squash
+git subtree pull --prefix agent/rules/language https://github.com/waytide/language.git master --squash
 ```

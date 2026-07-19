@@ -1,8 +1,10 @@
-# Agent Norms — Phase B Runbook (distribution)
+# Waytide — Phase B Runbook (distribution)
 
-Step-by-step for publishing packages from this composite repo to their component repos. **Gated: run only with explicit go-ahead — every push here writes to a public repo under `eventide-project`.**
+> **⚠️ Rebranded to Waytide (2026-07-19).** The org and repo names below are the **old** ones — this document records the 2026-07-17 release under `eventide-project/agent-norms-*`. The project has since moved to the **`waytide`** org with unprefixed repo names: the composite is `waytide/waytide` and each package is `waytide/<package>`. **Do not push to `eventide-project` / `agent-norms-*`.** The current release plan is the deferred item `agent/deferred/2026-07-19T05-22-32Z-pending-release-republish-all-seven-packages.md`. The split-and-push primitive and the proof step below still apply — substitute the new org and names.
 
-> **Status: Phase B was executed 2026-07-17** — all seven packages are published and every component repo is on `master` (default; no `main`). This document now serves as the **re-publish procedure** for future releases. The one-time steps (rename `agent-norms-vocabulary`→`-language`, create `agent-norms-design-by-efferent`) are done; a routine re-publish is just the split-and-push primitive to `master`.
+Step-by-step for publishing packages from this composite repo to their component repos. **Gated: run only with explicit go-ahead — every push here writes to a public repo.**
+
+> **Status: the 2026-07-17 release was executed under the old names** — all seven packages were published to `eventide-project/agent-norms-*` and every component repo is on `master`. That release is history; the first Waytide release (fresh repos under `waytide/*`) is the next one. The split-and-push primitive documented here is still the procedure.
 
 ## What Phase B does
 
@@ -11,7 +13,7 @@ Each package lives here as a top-level directory under one shared history. A **c
 ## Preconditions
 
 1. On `master`, working tree clean: `git -C <composite> status` shows nothing.
-2. Raw git can push to the component repos on your existing credential (macOS keychain helper). Confirm with `git ls-remote https://github.com/eventide-project/agent-norms-foundation.git HEAD` — a hash + `HEAD` at exit 0 means the credential works.
+2. Raw git can push to the component repos on your existing credential (macOS keychain helper). Confirm with `git ls-remote https://github.com/waytide/foundation.git HEAD` — a hash + `HEAD` at exit 0 means the credential works.
 3. **git stays raw.** Every push/pull below is raw `git`. `gh` is used only for the two repo-management actions raw git can't do — rename (step for `language`) and create (step for `design-by-efferent`) — which are GitHub-side API calls that don't alter this repo's git config. **Do not run `gh auth setup-git`** (it rewrites git's credential config). Both actions can be done in the GitHub web UI instead if you prefer no `gh` at all.
 4. Run every command from the composite repo root.
 
@@ -53,11 +55,11 @@ The split prefix is the composite path `code/ruby`; the repo flattens to `agent-
 
 ```
 # 1. Rename the repo (GitHub keeps a redirect from the old name)
-gh repo rename agent-norms-language -R eventide-project/agent-norms-vocabulary
+gh repo rename agent-norms-language -R waytide/vocabulary
 
 # 2. Regenerate and force-push (history reset is expected and acceptable)
 git subtree split --prefix=language -b publish-tmp
-git push --force "https://github.com/eventide-project/agent-norms-language.git" publish-tmp:master
+git push --force "https://github.com/waytide/language.git" publish-tmp:master
 git branch -D publish-tmp
 ```
 
@@ -66,11 +68,11 @@ git branch -D publish-tmp
 ## The new-repo case — design-by-efferent
 
 ```
-gh repo create eventide-project/agent-norms-design-by-efferent --public \
-  -d "Agent Norms — Design By Efferent: the human-in-the-loop, efferent-first design method"
+gh repo create waytide/design-by-efferent --public \
+  -d "Waytide — Design By Efferent: the human-in-the-loop, efferent-first design method"
 
 git subtree split --prefix=design-by-efferent -b publish-tmp
-git push "https://github.com/eventide-project/agent-norms-design-by-efferent.git" publish-tmp:master
+git push "https://github.com/waytide/design-by-efferent.git" publish-tmp:master
 git branch -D publish-tmp
 ```
 

@@ -5,7 +5,7 @@ set -e
 
 add() {
   prefix="agent/rules/$1"
-  repo="https://github.com/eventide-project/agent-norms-$1.git"
+  repo="https://github.com/waytide/$1.git"
 
   if [ ! -d "$prefix" ]; then
     git subtree add --prefix "$prefix" "$repo" master --squash
