@@ -1,8 +1,8 @@
-# Foundation must ship the bootstrap that switches the framework on (root `AGENTS.md`)
+# Foundation must ship the bootstrap that activates the framework (root `AGENTS.md`)
 
 Installing the packages via `git subtree` lands rule files under `agent/rules/foundation/`, `agent/rules/testing/`, etc. — but **nothing establishes the session-start behavior that reads them**. The whole framework depends on "read every file in `agent/rules/` at the start of a session and follow them," and that trigger cannot live inside `agent/rules/`: a rule there can't bootstrap the reading of its own directory. It must come from a **root-level `AGENTS.md`** (or `CLAUDE.md`) that the harness auto-loads.
 
-So a fresh project that installs the packages **still won't load the rules** until a root bootstrap file is added. The packages provide the rules and the *description* of the framework (foundation's `agent-rules-convention` even states the read-and-follow instruction) — but not the one file that turns the framework on.
+So a fresh project that installs the packages **still won't load the rules** until a root bootstrap file is added. The packages provide the rules and the *description* of the framework (foundation's `agent-rules-convention` even states the read-and-follow instruction) — but not the one file that activates the framework.
 
 **Confirmed:** `constant`'s root `AGENTS.md` carries the line verbatim ("Read every file in `agent/rules/` at the start of a session and follow them"). Foundation's convention rules were *extracted from* that `AGENTS.md` prose, but the bootstrap pointer stayed at the root, because it has to.
 
@@ -20,13 +20,13 @@ The bootstrap text is a self-contained heredoc *in the script*, so the earlier `
 - `<package>/install-dependencies.sh` is the wrong layer: only `language` / `testing` / `design-by-efferent` carry one, and it exists to pull a package's *dependencies*, not to bootstrap the root.
 - A bare `git subtree add --prefix agent/rules/foundation …` runs **no script at all**.
 
-The crux: **`foundation` owns the bootstrap, but `foundation` is standalone and by convention carries no install script** — so the package responsible for the on-switch has no per-package hook to place it.
+The crux: **`foundation` owns the bootstrap, but `foundation` is standalone and by convention carries no install script** — so the package responsible for activation has no per-package hook to place it.
 
 **Recommendation:** give **`foundation` its own install script** (e.g. `foundation/install.sh`), breaking the "standalone packages carry no script" convention *deliberately*, because placing the root bootstrap is foundation's responsibility, not a dependency step. That script — `git subtree add` foundation, then create-or-append the root `AGENTS.md` — becomes the single canonical way to install the framework's base, and it directly covers the common "install foundation" path. `install-all.sh` then calls it (or repeats the root step) so the all-in path is covered too; the bare manual `subtree add` path is documented as needing the root file.
 
 **Still open (remaining work):**
 - **`install-all.sh` integration.** Have the all-in installer cover the root step too — either call `foundation/install.sh` or repeat the create-or-append. (Idempotence / non-clobber is already handled in `foundation/install.sh` via the `grep` guard.)
-- **Document the manual path** in foundation's README: a bare `git subtree add` of foundation does *not* place the root file — point at `install.sh` (or a manual copy) as the way to switch the framework on. The README should also mention that foundation now carries an `install.sh` (unusual for a standalone package).
+- **Document the manual path** in foundation's README: a bare `git subtree add` of foundation does *not* place the root file — point at `install.sh` (or a manual copy) as the way to activate the framework. The README should also mention that foundation now carries an `install.sh` (unusual for a standalone package).
 - **Re-publish `foundation`** (Phase B) so `install.sh` reaches the component repo. Gated.
 
 **Gated on:** not blocking. `foundation` is already published, so shipping the bootstrap (whichever mechanism) is a `foundation` re-publish (Phase B) once the mechanism is decided — do that with explicit go-ahead.

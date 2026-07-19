@@ -29,7 +29,7 @@ if [ ! -d "$prefix" ]; then
 fi
 git subtree pull --prefix "$prefix" "$repo" master --squash
 
-# 2. Ensure the project-root AGENTS.md switches the framework on.
+# 2. Ensure the project-root AGENTS.md activates the framework.
 if [ -f AGENTS.md ] && grep -q 'agent/rules/' AGENTS.md; then
   echo "AGENTS.md already points at agent/rules/ — left unchanged."
 elif [ ! -f AGENTS.md ]; then
