@@ -58,3 +58,8 @@ It includes `foundation` — install that too, or run `sh agent/rules/language/i
 ```
 git subtree pull --prefix agent/rules/language https://github.com/waytide/language.git master --squash
 ```
+
+
+## License
+
+Waytide is in early development and is **not yet licensed for use** — all rights reserved. A license, the Eventide Common Interest License, is forthcoming.

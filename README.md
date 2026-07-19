@@ -1,6 +1,6 @@
 # Waytide
 
-**An open-source project by [Eventide](https://eventide-project.org).**
+**A project by [Eventide](https://eventide-project.org).**
 
 Reusable agent directives — the rules an AI coding agent reads at the start of a
 session — organized into installable **packages**. A package is the unit of
@@ -99,6 +99,11 @@ sh install-all.sh
 Rules specific to a single project live under a `local/` directory that mirrors
 the package categories (`local/language`, `local/testing`, `local/code/ruby`)
 and is never split or pushed, so a project-specific rule cannot leak upstream.
+
+## License
+
+Waytide is in early development and is **not yet licensed for use** — all rights
+reserved. A license, the Eventide Common Interest License, is forthcoming.
 
 ---
 

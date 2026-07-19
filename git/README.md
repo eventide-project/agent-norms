@@ -37,3 +37,8 @@ It has no dependencies.
 ```
 git subtree pull --prefix agent/rules/git https://github.com/waytide/git.git master --squash
 ```
+
+
+## License
+
+Waytide is in early development and is **not yet licensed for use** — all rights reserved. A license, the Eventide Common Interest License, is forthcoming.

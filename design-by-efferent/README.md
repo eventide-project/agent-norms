@@ -56,3 +56,8 @@ It includes `foundation`, `language`, and `testing` — install those too, or ru
 ```
 git subtree pull --prefix agent/rules/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
 ```
+
+
+## License
+
+Waytide is in early development and is **not yet licensed for use** — all rights reserved. A license, the Eventide Common Interest License, is forthcoming.
