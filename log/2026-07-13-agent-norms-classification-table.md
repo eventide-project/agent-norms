@@ -40,8 +40,8 @@ On build, the general robustness principle behind `string-outputs-permissive-inp
 
 | Rule | Package | Notes |
 |---|---|---|
-| plans-no-code-samples | docs | |
-| package-dependency-heading | docs | |
+| plans-no-code-samples | plan | |
+| package-dependency-heading | plan | |
 
 ## `git/`
 
@@ -133,7 +133,7 @@ On build, the `tdd-*` genus prefix was relabeled `dbe-*` (e.g. `tdd-as-design-to
 - **testing** — the test-writing rules, test-report, test-tree, do-not-test-the-platform, assert-error-message, and one rule per substitute (the merged controls rule, verified, protect). No table.
 - **code/ruby** — the Ruby code-style rules, build/new, lib-report. (`code/` is a namespace grouping by programming language; future `code/sh`, `code/sql` are separate packages.)
 - **git** — the four commit rules (no-claude-coauthor, run-suite-before-commit, commit-says-task-is-done, subject-first-commit-messages).
-- **docs** — the two documentation rules.
+- **plan** (formerly `docs`) — the two document-writing rules (plans-no-code-samples, package-dependency-heading), plus the plan/design document-format rules authored during the conventions build.
 - **local/** — `local/code/ruby/` (string-outputs, intra-`Constant` `new` privilege), `local/language/` (literal-constant), `local/testing/` (namespace-variable-suffix).
 - **eventide** — reserved, empty.
 

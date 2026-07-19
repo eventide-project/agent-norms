@@ -28,7 +28,7 @@ below (each has its own repository).
   structure and naming, assertion form.
 - **[code/ruby](https://github.com/eventide-project/agent-norms-code-ruby)**. Prescriptive Ruby style.
 - **[git](https://github.com/eventide-project/agent-norms-git)**. Commit conventions.
-- **[docs](https://github.com/eventide-project/agent-norms-docs)**. Documentation conventions for design docs and implementation plans.
+- **[plan](https://github.com/eventide-project/agent-norms-plan)**. How plans and design documents are written. Despite the name, it covers design docs as well as plans.
 
 A package that has dependencies carries an `install-dependencies.sh` that installs
 them; a standalone package has none. Each arrow below points from a package to the
@@ -42,7 +42,7 @@ language            →  foundation
 
 foundation          →  (nothing — the base every other package builds on)
 git                 →  (nothing — standalone)
-docs                →  (nothing — standalone)
+plan                →  (nothing — standalone)
 ```
 
 ## Using a package in a project
@@ -68,7 +68,7 @@ git subtree add --prefix agent/rules/language            https://github.com/even
 git subtree add --prefix agent/rules/testing             https://github.com/eventide-project/agent-norms-testing.git             master --squash
 git subtree add --prefix agent/rules/code/ruby           https://github.com/eventide-project/agent-norms-code-ruby.git           master --squash
 git subtree add --prefix agent/rules/git                 https://github.com/eventide-project/agent-norms-git.git                 master --squash
-git subtree add --prefix agent/rules/docs                https://github.com/eventide-project/agent-norms-docs.git                master --squash
+git subtree add --prefix agent/rules/plan                https://github.com/eventide-project/agent-norms-plan.git                master --squash
 git subtree add --prefix agent/rules/design-by-efferent  https://github.com/eventide-project/agent-norms-design-by-efferent.git  master --squash
 ```
 
@@ -80,7 +80,7 @@ git subtree pull --prefix agent/rules/language            https://github.com/eve
 git subtree pull --prefix agent/rules/testing             https://github.com/eventide-project/agent-norms-testing.git             master --squash
 git subtree pull --prefix agent/rules/code/ruby           https://github.com/eventide-project/agent-norms-code-ruby.git           master --squash
 git subtree pull --prefix agent/rules/git                 https://github.com/eventide-project/agent-norms-git.git                 master --squash
-git subtree pull --prefix agent/rules/docs                https://github.com/eventide-project/agent-norms-docs.git                master --squash
+git subtree pull --prefix agent/rules/plan                https://github.com/eventide-project/agent-norms-plan.git                master --squash
 git subtree pull --prefix agent/rules/design-by-efferent  https://github.com/eventide-project/agent-norms-design-by-efferent.git  master --squash
 ```
 

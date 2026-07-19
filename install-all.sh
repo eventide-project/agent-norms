@@ -19,5 +19,5 @@ add language            language
 add testing             testing
 add code/ruby           code-ruby
 add git                 git
-add docs                docs
+add plan                plan
 add design-by-efferent  design-by-efferent

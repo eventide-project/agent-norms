@@ -1,9 +1,8 @@
-# Agent Norms — docs
+# Agent Norms — plan
 
-Documentation conventions for a project's design and planning artifacts.
+How a project's **plans and design documents** are written. The package covers both written artifacts that describe a piece of work — the implementation plan (how it gets built) and the design (what it should be) — so despite the name "plan", it governs design documents too.
 
-The rules in this package govern how design docs and implementation plans are
-written:
+The rules govern how those documents are written:
 
 - **An implementation plan reads in a settled order** — Goal, Source design,
   Architecture, Process notes, Tasks, and so on (`plan-document-format`).
@@ -19,7 +18,7 @@ written:
 This is a standalone package: it includes no other packages.
 
 ```
-docs  →  (nothing — standalone)
+plan  →  (nothing — standalone)
 ```
 
 ## Installing into a project
@@ -27,8 +26,8 @@ docs  →  (nothing — standalone)
 Install with `git subtree` — it puts the files in your project's `agent/rules/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add  --prefix agent/rules/docs https://github.com/eventide-project/agent-norms-docs.git master --squash
-git subtree pull --prefix agent/rules/docs https://github.com/eventide-project/agent-norms-docs.git master --squash
+git subtree add  --prefix agent/rules/plan https://github.com/eventide-project/agent-norms-plan.git master --squash
+git subtree pull --prefix agent/rules/plan https://github.com/eventide-project/agent-norms-plan.git master --squash
 ```
 
 It has no dependencies.
@@ -36,5 +35,5 @@ It has no dependencies.
 **Refresh from upstream** periodically to pull the latest rules:
 
 ```
-git subtree pull --prefix agent/rules/docs https://github.com/eventide-project/agent-norms-docs.git master --squash
+git subtree pull --prefix agent/rules/plan https://github.com/eventide-project/agent-norms-plan.git master --squash
 ```

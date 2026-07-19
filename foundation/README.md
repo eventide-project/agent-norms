@@ -30,7 +30,7 @@ first), and `agent/experiments/` (recorded experiments that test a question).
 Experiments carry a full branch lifecycle — their own branch, the
 affirmed/refuted/inconclusive/abandoned/superseded states, and a test-gated merge —
 in the `experiment-runs-on-its-own-branch` rule. How plans and designs *read* (their
-sections) is the `docs` package's concern.
+sections) is the `plan` package's concern.
 
 Other packages may contribute their own artifact directories (for example,
 design-by-efferent contributes `agent/loops/`); foundation owns

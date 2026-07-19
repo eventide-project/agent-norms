@@ -20,8 +20,8 @@ Turn `constant`'s `agent/rules/` directives into reusable, general-purpose packa
 - **Package = unit of reuse.** Projects depend on whole packages; consolidate *within* a package.
 - **Composite repo authoring + split distribution.** This "Agent Norms" folder is the canonical composite repo (packages as root-level dirs, own full history). Each `agent-norms-<package>` component repo is a regenerated one-package view via `git subtree split --prefix=<package>`, pushed to its own repo in `eventide-project`. Sync is one-directional (composite → component).
 - **Repo prefix:** `agent-norms-` (e.g. `agent-norms-testing`). `code/` flattens to `code-` in repo names; the subtree prefix keeps the real path `agent/rules/code/ruby`. `code/` groups by *programming* language and is not a package.
-- **Package types:** `foundation`, `language`, `design-by-efferent` (DBE), `testing`, `code/ruby`, `git`, `docs` (plus `eventide`, reserved). `code/` and `local/` are grouping namespaces, not packages.
-- **Dependencies:** everything → `foundation`; `testing` & `code/ruby` → `language`; `design-by-efferent` → `foundation`, `language`, `testing`. `git`, `docs` standalone.
+- **Package types:** `foundation`, `language`, `design-by-efferent` (DBE), `testing`, `code/ruby`, `git`, `plan` (renamed from `docs` 2026-07-19; plus `eventide`, reserved). `code/` and `local/` are grouping namespaces, not packages.
+- **Dependencies:** everything → `foundation`; `testing` & `code/ruby` → `language`; `design-by-efferent` → `foundation`, `language`, `testing`. `git`, `plan` standalone.
 - **`local/` mirror** holds `constant`-specific rules, never subtree'd, mirrors package categories (`local/code/ruby`, `local/language`, `local/testing`). Stays in `constant` only.
 - **Term artifacts per package:** one rule per substitute (no `substitutes.md` table). A cohesive glossary of interlocking terms-with-meanings may be a `vocabulary.md` (DBE is the one package that has one); a standalone term-with-meaning is a rule (e.g. `language`'s `solubility`). Terms placed by the domain they serve.
 - **No manifest format;** a package with dependencies carries an `install-dependencies.sh` that installs them (standalone packages carry none); the composite carries `install-all.sh`. A package's structural files — `README.md`, `vocabulary.md`, `install-dependencies.sh` — are exempt from the ISO-8601 filename prefix; its dated artifacts (rules, `log/` entries) always take it. (The former one-line `include:` `package.md` manifest was dropped 2026-07-18.)
@@ -59,7 +59,14 @@ The four fast-forward re-publishes each passed a `merge-base --is-ancestor` guar
 
 Both were proved by a throwaway pull. The rules were drafted from `constant`'s worked examples of `agent/plans/`, `agent/design/`, and `agent/experiments/`. Experiments carry a full branch lifecycle: their own `experiment/<subject>` branch, a single-branch-to-a-verdict default (runs optional), the states **affirmed / refuted / inconclusive / abandoned / superseded** (plus **suspended**), a test-gated merge on affirmation that also copies the experiment's log into `agent/log/`, and user-confirmed branch deletion. The originating deferred item was resolved (deleted, with an `agent/log/` entry). One follow-up remains parked as its own deferred item: surveying `constant`'s `agent/sessions/` for a possible fourth convention — gated behind finishing agent-norms before returning to `constant`.
 
-**Pending release (not yet published) — 2026-07-19.** After the above, a phrasing sweep ("puts" not "lands" for placement) touched **all seven** package READMEs plus rules in `foundation` and `language`, so **every package now carries unpublished changes**. Left unpublished at Scott's direction — batch at the next release. Tracked as a deferred item (`…-pending-release-republish-all-seven-packages.md`); it's a routine fast-forward re-publish per the Phase B runbook. Also pending for `foundation`: the bootstrap `install.sh` (its own deferred item) — batch both when releasing.
+**Pending release (not yet published) — 2026-07-19.** After the above, several changes were made and left unpublished at Scott's direction, to batch at the next release — so **every package now carries unpublished changes**:
+
+- a phrasing sweep ("puts" not "lands" for placement) across **all seven** package READMEs plus rules in `foundation` and `language`;
+- two new `language` rules — `communicate-plainly-name-the-thing` and `expand-abbreviations-on-first-use`;
+- the **`docs` → `plan` package rename** — done in the composite; at release the component repo needs renaming (`agent-norms-docs` → `agent-norms-plan`) and a history reset, the same as the earlier `vocabulary` → `language` rename;
+- pending for `foundation`: the bootstrap `install.sh` (its own deferred item).
+
+Tracked as a deferred item (`…-pending-release-republish-all-seven-packages.md`): six packages are fast-forward re-publishes, `plan` is the rename + reset. Batch it all when releasing.
 
 ## What this session did (2026-07-17)
 

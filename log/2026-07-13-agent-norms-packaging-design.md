@@ -34,7 +34,7 @@ Seven package types (plus `eventide`, held in reserve). Each rule has a type, an
 
 - **eventide** — reserved for genuinely Eventide-specific material. Empty for now (the constructor design lives in `code/ruby` as prescriptive Ruby, not here).
 
-- **docs** — documentation conventions: implementation plans contain no code samples; a package-dependency section is titled "Package Dependency."
+- **plan** — how plans and design documents are written (covers design docs despite the name): implementation plans contain no code samples; a package-dependency section is titled "Package Dependency."
 
 Commands generalize because their axes are general *lenses* that recompute from the current project's files — only the example buckets were `constant`-specific. Each is filed above with the domain it reports on rather than in a `commands` package.
 
@@ -48,7 +48,7 @@ language ──► code/ruby
 language, testing ──► design-by-efferent
 
 git      (standalone)
-docs     (standalone)
+plan     (standalone)
 eventide (reserved; would depend on code/ruby)
 ```
 
@@ -74,7 +74,7 @@ The five commands are **not** local. They generalize — their axes are general 
 
 ## Consuming-project workflow (git subtree)
 
-**Repos.** Each package is its own git repo on a shared account, named with the `agent-norms-` prefix: `agent-norms-foundation`, `agent-norms-language`, `agent-norms-design-by-efferent`, `agent-norms-testing`, `agent-norms-code-ruby` (future `agent-norms-code-sh`, `agent-norms-code-sql`), `agent-norms-git`, `agent-norms-docs`, and `agent-norms-eventide` (reserved). The `code/` namespace flattens to `code-` in the repo name, while the subtree *prefix* keeps the real path (`agent/rules/code/ruby`). `local/` packages get no repo — they never leave their project.
+**Repos.** Each package is its own git repo on a shared account, named with the `agent-norms-` prefix: `agent-norms-foundation`, `agent-norms-language`, `agent-norms-design-by-efferent`, `agent-norms-testing`, `agent-norms-code-ruby` (future `agent-norms-code-sh`, `agent-norms-code-sql`), `agent-norms-git`, `agent-norms-plan`, and `agent-norms-eventide` (reserved). The `code/` namespace flattens to `code-` in the repo name, while the subtree *prefix* keeps the real path (`agent/rules/code/ruby`). `local/` packages get no repo — they never leave their project.
 
 A project pulls the packages it needs into its own `agent/rules/` tree. Sketch of the operations (for `agent-norms-testing`):
 
