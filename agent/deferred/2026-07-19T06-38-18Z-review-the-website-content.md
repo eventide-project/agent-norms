@@ -1,6 +1,6 @@
 # Review the website content
 
-Review the drafts in `website/` before the documentation site is built out. So far: `capabilities.md` (the capability list), `experiments.md`, and `human-in-the-loop-design.md`, plus whatever pages are added next.
+Review the drafts in `docs/` before the documentation site is built out. So far: `capabilities.md` (the capability list), `experiments.md`, and `human-in-the-loop-design.md`, plus whatever pages are added next.
 
 Check each page for:
 
@@ -14,4 +14,4 @@ Check each page for:
 
 **Why:** the drafts were written quickly and needed several plain-language corrections during drafting; a deliberate review pass will catch the rest and confirm the pages are accurate and consistent before more are written on top of them.
 
-**How to do it:** read each `website/` page against the packages it describes and against the plain-language rules (`communicate-plainly-name-the-thing`, `no-slang`, `expand-abbreviations-on-first-use`); fix what's off; confirm the capability list and the pages line up.
+**How to do it:** read each `docs/` page against the packages it describes and against the plain-language rules (`communicate-plainly-name-the-thing`, `no-slang`, `expand-abbreviations-on-first-use`); fix what's off; confirm the capability list and the pages line up.

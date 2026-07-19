@@ -1,6 +1,6 @@
 # Agent Norms — documentation website (drafts)
 
-Drafts and planning for the project's documentation website. This folder is **not a package** — it is never split out or published with the packages.
+Drafts and planning for the project's documentation website. This folder is **not a package** — it is never split out or published with the packages. (The `docs/` name is free because the former `docs` package was renamed `plan`; this folder now holds the documentation site, following the common convention of keeping a site under `docs/`.)
 
 The site is organized **capability-first**: it leads with what Agent Norms *does* for you, and leaves the structure — packages, installation, distribution — for later, once a reader wants to adopt it. The structure isn't interesting to a reader until they've decided the capabilities are worth having.
 
