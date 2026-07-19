@@ -59,6 +59,8 @@ The four fast-forward re-publishes each passed a `merge-base --is-ancestor` guar
 
 Both were proved by a throwaway pull. The rules were drafted from `constant`'s worked examples of `agent/plans/`, `agent/design/`, and `agent/experiments/`. Experiments carry a full branch lifecycle: their own `experiment/<subject>` branch, a single-branch-to-a-verdict default (runs optional), the states **affirmed / refuted / inconclusive / abandoned / superseded** (plus **suspended**), a test-gated merge on affirmation that also copies the experiment's log into `agent/log/`, and user-confirmed branch deletion. The originating deferred item was resolved (deleted, with an `agent/log/` entry). One follow-up remains parked as its own deferred item: surveying `constant`'s `agent/sessions/` for a possible fourth convention — gated behind finishing agent-norms before returning to `constant`.
 
+**Pending release (not yet published) — 2026-07-19.** After the above, a phrasing sweep ("puts" not "lands" for placement) touched **all seven** package READMEs plus rules in `foundation` and `language`, so **every package now carries unpublished changes**. Left unpublished at Scott's direction — batch at the next release. Tracked as a deferred item (`…-pending-release-republish-all-seven-packages.md`); it's a routine fast-forward re-publish per the Phase B runbook. Also pending for `foundation`: the bootstrap `install.sh` (its own deferred item) — batch both when releasing.
+
 ## What this session did (2026-07-17)
 
 Built the DBE package (Phase A), then a cascade of conformance work it exposed:
